@@ -16,6 +16,15 @@
   justify-content: space-between;
   padding: 32px 24px;
   width: 100%;
+
+  @include for-tablet-up {
+    padding: 32px 40px;
+  }
+
+  @include for-desktop-up {
+    justify-content: space-between;
+    padding: 32px 0;
+  }
 }
 
 .logo {
@@ -41,5 +50,23 @@
     background-image: url('../../../../public/assets/shared/desktop/icon-cart.svg');
     height: 20px;
     width: 24px;
+  }
+}
+
+.links {
+  @include flex-row;
+  @include grid-with-columns(repeat(4, max-content));
+  gap: 34px;
+  list-style-type: none;
+}
+
+.link {
+  @include SubTitle;
+  color: $white;
+  text-decoration: none;
+
+  &:hover,
+  &.active {
+    color: $rawSienna;
   }
 }

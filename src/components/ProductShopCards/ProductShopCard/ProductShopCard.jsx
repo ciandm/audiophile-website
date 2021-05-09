@@ -6,7 +6,6 @@ import Button from '../../shared/Button/Button';
 
 function ProductShopCard({ category, href, image }) {
   const router = useRouter();
-  console.log(router.query);
   return (
     <div className={styles.card}>
       <div className={styles.image_container}>
