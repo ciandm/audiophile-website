@@ -1,11 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 
-const ResponsiveImage = ({ image, alt }) => (
-  <img
-    alt={alt}
-    src={image.mobile}
-    srcSet={`${image.mobile} 300w, ${image.tablet} 768w, ${image.desktop} 1280w`}
-  />
+const ResponsiveImage = ({ src, alt, objectFit }) => (
+  <Image alt={alt} src={src} layout="fill" objectFit={objectFit || 'cover'} />
 );
 
 export default ResponsiveImage;

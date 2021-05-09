@@ -6,7 +6,29 @@
   @include flex-column;
 
   @include for-desktop-up {
-    @include flex-row
+    @include flex-row;
+
+    &:nth-child(2n+2) {
+      .content {
+        order: -1;
+        padding-left: 0;
+        padding-right: 128px;
+      }
+    }
+  }
+}
+
+.image_container {
+  background: $seaShell;
+  border-radius: 8px;
+  height: 352px;
+  overflow: hidden;
+  position: relative;
+
+  @include for-desktop-up {
+    flex-shrink: 0;
+    height: 560px;
+    width: 540px;
   }
 }
 
@@ -16,6 +38,15 @@
   justify-items: center;
   padding-top: 32px;
   text-align: center;
+
+  @include for-desktop-up {
+    align-content: center;
+    gap: 16px;
+    justify-items: start;
+    padding-left: 128px;
+    padding-top: 0;
+    text-align: left;
+  }
 }
 
 .overline {
@@ -31,4 +62,8 @@
 .description {
   @include Body;
   opacity: 0.5;
+
+  @include for-desktop-up {
+    padding: 16px 0 24px 0;
+  }
 }

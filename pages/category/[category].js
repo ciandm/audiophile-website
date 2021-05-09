@@ -10,7 +10,8 @@ function SelectedCategoryPage({ category, products }) {
       <CategoryProducts>
         {products.map(p => (
           <CategoryProduct
-            image={p.image.mobile}
+            key={p._id}
+            imageSrc={p.image.desktop}
             alt={p.name}
             title={p.name}
             description={p.description}
@@ -32,12 +33,14 @@ export async function getStaticProps({ params }) {
       method: 'GET',
     }
   );
-  const products = await data.json();
+  const results = await data.json();
+  // place items with a new flag towards the top
+  const products = results.data.sort((a, b) => b.new - a.new);
 
   return {
     props: {
       category: params.category,
-      products: products.data,
+      products,
     },
   };
 }
