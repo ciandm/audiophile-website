@@ -13,6 +13,7 @@ function SelectedCategoryPage({ category, products }) {
           title={p.name}
           description={p.description}
           newItem={p.new}
+          slug={p.slug}
         />
       ))}
     </>

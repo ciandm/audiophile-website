@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './CategoryBanner.module.scss';
+import Button from '../shared/Button/Button';
 
-function CategoryProduct({ newItem, title, image, description }) {
+function CategoryProduct({ newItem, title, image, description, slug }) {
   return (
     <div className={styles.product}>
       <div className={styles.image_container}>
@@ -12,7 +13,9 @@ function CategoryProduct({ newItem, title, image, description }) {
         {newItem ? <span className={styles.overline}>New product</span> : null}
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.description}>{description}</p>
-        <button>Placeholder</button>
+        <Button type="link" href={`/products/${slug}`} variation="primary">
+          See Product
+        </Button>
       </div>
     </div>
   );
@@ -27,5 +30,6 @@ CategoryProduct.propTypes = {
     src: PropTypes.string,
   }).isRequired,
   newItem: PropTypes.bool,
+  slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

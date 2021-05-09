@@ -1,0 +1,47 @@
+@import '../../../style/variables';
+@import '../../../style/typography';
+@import '../../../style/utilities';
+
+.button {
+  @include SubTitle;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 16px 30px;
+  text-decoration: none;
+}
+
+.primary {
+  @extend .button;
+  background: $rawSienna;
+  color: $white;
+
+  &:hover {
+    background: $hitPink;
+  }
+}
+
+.secondary {
+  @extend .button;
+  background: none;
+  border-color: $black;
+  color: $black;
+
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+}
+
+.ghost {
+  @include flex-row;
+  @extend .button;
+  color: hsla(0, 0%, 0%, 0.5);
+
+  & svg {
+    margin-left: 16px;
+  }
+
+  &:hover {
+    color: $rawSienna;
+  }
+}
