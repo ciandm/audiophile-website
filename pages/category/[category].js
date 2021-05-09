@@ -6,3 +6,7 @@ function SelectedCategoryPage() {
 }
 
 export default SelectedCategoryPage;
+
+export async function getStaticProps() {}
+
+export async function getStaticPaths() {}
