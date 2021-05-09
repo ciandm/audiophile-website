@@ -10,7 +10,8 @@
     "mongodb": "^3.5.9",
     "next": "latest",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sass": "^1.32.12"
   },
   "license": "MIT"
 }
