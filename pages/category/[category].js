@@ -1,21 +1,24 @@
 import React from 'react';
 import CategoryBanner from '../../src/components/CategoryBanner/CategoryBanner';
 import CategoryProduct from '../../src/components/CategoryProduct/CategoryProduct';
+import CategoryProducts from '../../src/components/CategoryProducts/CategoryProducts';
 
 function SelectedCategoryPage({ category, products }) {
   return (
     <>
       <CategoryBanner category={category} />
-      {products.map(p => (
-        <CategoryProduct
-          image={p.image.mobile}
-          alt={p.name}
-          title={p.name}
-          description={p.description}
-          newItem={p.new}
-          slug={p.slug}
-        />
-      ))}
+      <CategoryProducts>
+        {products.map(p => (
+          <CategoryProduct
+            image={p.image.mobile}
+            alt={p.name}
+            title={p.name}
+            description={p.description}
+            newItem={p.new}
+            slug={p.slug}
+          />
+        ))}
+      </CategoryProducts>
     </>
   );
 }

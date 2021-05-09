@@ -10,8 +10,8 @@
   @media screen and (min-width: 768px) { @content; }
 }
 
-@mixin for-laptop-up {
-  @media screen and (min-width: 1032px) { @content; }
+@mixin for-desktop-up {
+  @media screen and (min-width: 1110px) { @content; }
 }
 
 @mixin for-hover {
@@ -41,4 +41,8 @@
 @mixin grid-with-rows($rows) {
   display: grid;
   grid-template-rows: $rows;
+}
+
+@mixin max-width {
+  max-width: 1110px;
 }

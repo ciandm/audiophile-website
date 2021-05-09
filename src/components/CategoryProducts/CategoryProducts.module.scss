@@ -1,0 +1,23 @@
+@import '../../style/utilities';
+
+.section {
+  @include flex-column;
+  @include flex-center-contents;
+  padding: 60px 24px;
+
+  @include for-tablet-up {
+    padding: 120px 40px 60px
+  }
+
+  @include for-desktop-up {
+    padding: 160px 0 80px;
+  }
+}
+
+.products {
+  display: grid;
+  gap: 120px;
+  grid-template-columns: 1fr;
+  width: 100%;
+  @include max-width;
+}

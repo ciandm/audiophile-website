@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './CategoryBanner.module.scss';
+import styles from './CategoryProduct.module.scss';
 import Button from '../shared/Button/Button';
 
 function CategoryProduct({ newItem, title, image, description, slug }) {
