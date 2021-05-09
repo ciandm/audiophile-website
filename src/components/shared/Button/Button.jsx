@@ -41,11 +41,15 @@ const Secondary = ({ children, isLink, type, ...restProps }) => {
   );
 };
 
-const Ghost = ({ children, isLink, type, ...restProps }) => {
+const Ghost = ({ children, type, activeLink, ...restProps }) => {
   if (type === 'link') {
     return (
       <Link {...restProps}>
-        <a className={styles.primary}>{children}</a>
+        <a
+          className={`${styles.ghost} ${activeLink ? `${styles.active}` : ''}`}
+        >
+          {children}{' '}
+        </a>
       </Link>
     );
   }
@@ -53,14 +57,14 @@ const Ghost = ({ children, isLink, type, ...restProps }) => {
     <button
       type={type === 'button' ? 'button' : 'submit'}
       {...restProps}
-      className={styles.primary}
+      className={styles.ghost}
     >
       {children}
     </button>
   );
 };
 
-const Button = ({ variation, children, type, ...restProps }) => {
+const Button = ({ variation, children, type, activeLink, ...restProps }) => {
   if (variation === 'secondary') {
     return (
       <Secondary type={type} {...restProps}>
@@ -70,7 +74,7 @@ const Button = ({ variation, children, type, ...restProps }) => {
   }
   if (variation === 'ghost') {
     return (
-      <Ghost type={type} {...restProps}>
+      <Ghost type={type} activeLink={activeLink} {...restProps}>
         {children}
       </Ghost>
     );

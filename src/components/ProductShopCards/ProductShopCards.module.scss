@@ -1,0 +1,27 @@
+@import '../../style/utilities';
+
+.section {
+  @include flex-column;
+  @include flex-center-contents;
+  padding: 60px 24px;
+
+  @include for-tablet-up {
+    padding: 60px 40px;
+  }
+}
+
+.container {
+  @include grid-with-rows(repeat(3, 1fr));
+  @include max-width;
+  gap: 72px;
+  width: 100%;
+
+  @include for-tablet-up {
+    @include grid-with-columns(repeat(3, 1fr));
+    gap: 10px;
+  }
+
+  @include for-desktop-up {
+    gap: 30px;
+  }
+}

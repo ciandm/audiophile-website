@@ -1,0 +1,37 @@
+@import '../../../style/utilities';
+@import '../../../style/typography';
+@import '../../../style/variables';
+
+.card {
+  @include flex-column;
+  @include flex-center-contents;
+  background: $seaShell;
+  border-radius: 8px;
+  padding-bottom: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.image_container {
+  height: 104px;
+  margin-top: -52px;
+  position: relative;
+  width: 104px;
+
+  // overwrite next.js div wrapper
+  & > div {
+    overflow: visible !important;
+  }
+
+  & img {
+    transform: scale(1.3);
+    transform-origin: top
+  }
+}
+
+.title {
+  @include HeadingSix;
+  color: $black;
+  padding: 36px 0 16px;
+}
+

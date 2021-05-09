@@ -35,13 +35,26 @@
 .ghost {
   @include flex-row;
   @extend .button;
+  align-items: center;
   color: hsla(0, 0%, 0%, 0.5);
+  padding: 0;
+  position: relative;
 
-  & svg {
-    margin-left: 16px;
+  &::after {
+    background-image: url('../../../../public/assets/shared/desktop/icon-arrow-right.svg');
+    background-size: contain;
+    content: '';
+    display: block;
+    height: 12px;
+    margin-left: 12px;
+    width: 8px;
   }
 
   &:hover {
     color: $rawSienna;
   }
+
+  &.active {
+  color: $rawSienna;
+}
 }
