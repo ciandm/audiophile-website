@@ -28,6 +28,11 @@
   flex-direction: column;
 }
 
+@mixin flex-center-contents {
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin grid-with-columns($columns) {
   display: grid;
   grid-template-columns: $columns;

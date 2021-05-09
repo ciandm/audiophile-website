@@ -1,3 +1,5 @@
+@use './utilities';
+
 @mixin HeadingOne {
   font-size: 56px;
   font-weight: 700;
@@ -7,11 +9,19 @@
 }
 
 @mixin HeadingTwo {
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: 1.42857px;
-  line-height: 44px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 38px;
   text-transform: uppercase;
+
+  @include for-tablet-up {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1.42857px;
+    line-height: 44px;
+    text-transform: uppercase;
+  }
 }
 
 @mixin HeadingThree {
