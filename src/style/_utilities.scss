@@ -37,3 +37,8 @@
   display: grid;
   grid-template-columns: $columns;
 }
+
+@mixin grid-with-rows($rows) {
+  display: grid;
+  grid-template-rows: $rows;
+}
