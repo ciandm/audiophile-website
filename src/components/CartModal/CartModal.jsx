@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../shared/Button/Button';
+import CartItem from './CartItem/CartItem';
 import styles from './CartModal.module.scss';
 
-function CartModal() {
+function CartModal({ cartItems, cartTotal }) {
   return (
     <div className={styles.overlay}>
       <div className={styles.modalContainer}>
@@ -14,17 +16,15 @@ function CartModal() {
             </button>
           </div>
           <div className={styles.cartContents}>
-            <div className={styles.cartItem}>
-              <div className={styles.cartImage} />
-              <div className={styles.cartItemDetails}>
-                <p className={styles.cartItemTitle}>XX99 MKII</p>
-                <span className={styles.cartItemPrice}>$ 2,999</span>
-              </div>
-            </div>
+            {cartItems.map(i => (
+              <CartItem key={i.id} {...i} />
+            ))}
           </div>
           <div className={styles.cartFooter}>
             <span>Total</span>
-            <p className={styles.cartTotal}>$ 5,396</p>
+            <p className={styles.cartTotal}>
+              $ {new Intl.NumberFormat().format(cartTotal)}
+            </p>
           </div>
           <Button variation="primary" type="link" href="/checkout">
             Checkout
@@ -36,3 +36,8 @@ function CartModal() {
 }
 
 export default CartModal;
+
+CartModal.propTypes = {
+  cartItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  cartTotal: PropTypes.number.isRequired,
+};

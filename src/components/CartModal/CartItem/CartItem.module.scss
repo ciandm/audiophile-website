@@ -1,0 +1,33 @@
+@import '../../../style/utilities';
+@import '../../../style/typography';
+@import '../../../style/variables';
+
+.cartItem {
+  @include grid-with-columns(64px 1fr 96px);
+  align-items: center;
+  gap: 16px;
+}
+
+.cartImage {
+  background-color: $seaShell;
+  border-radius: 8px;
+  height: 64px;
+  overflow: hidden;
+  position: relative;
+  width: 64px;
+}
+
+.cartItemDetails {
+  @include flex-column;
+}
+
+.cartItemTitle {
+  @include Body;
+  color: $black;
+}
+
+.cartItemPrice {
+  @include SubTitle;
+  color: $black;
+  opacity: 0.5;
+}

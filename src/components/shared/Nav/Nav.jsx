@@ -8,7 +8,7 @@ import ProductShopCards from '../../ProductShopLinks/ProductShopCards/ProductSho
 import CartModal from '../../CartModal/CartModal';
 import { useCartContext } from '../../context/CartContext';
 
-const NavMobile = ({ cartOpen, cartItems, handleShowCart }) => {
+const NavMobile = ({ cartOpen, cartItems, cartTotal, handleShowCart }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => () => setMenuOpen(false), []);
 
@@ -50,12 +50,20 @@ const NavMobile = ({ cartOpen, cartItems, handleShowCart }) => {
           <ProductShopCards />
         </div>
       ) : null}
-      {cartOpen ? <CartModal /> : null}
+      {cartOpen ? (
+        <CartModal cartItems={cartItems} cartTotal={cartTotal} />
+      ) : null}
     </nav>
   );
 };
 
-const NavDesktop = ({ activePath, cartOpen, cartItems, handleShowCart }) => (
+const NavDesktop = ({
+  activePath,
+  cartOpen,
+  cartItems,
+  cartTotal,
+  handleShowCart,
+}) => (
   <nav className={styles.nav}>
     <div className={styles.contents}>
       <div className={styles.logo}>
@@ -118,27 +126,31 @@ const NavDesktop = ({ activePath, cartOpen, cartItems, handleShowCart }) => (
         &nbsp;
       </button>
     </div>
-    {cartOpen ? <CartModal /> : null}
+    {cartOpen ? (
+      <CartModal cartItems={cartItems} cartTotal={cartTotal} />
+    ) : null}
   </nav>
 );
 
 function Nav() {
   const windowSize = useWindowSize();
   const router = useRouter();
-  const { cartOpen, cartItems, handleShowCart } = useCartContext();
+  const { cartOpen, cartItems, cartTotal, handleShowCart } = useCartContext();
   const activePath = router.asPath;
   return windowSize < 1110 ? (
     <NavMobile
       activePath={activePath}
       cartOpen={cartOpen}
-      cartItmes={cartItems}
+      cartItems={cartItems}
+      cartTotal={cartTotal}
       handleShowCart={handleShowCart}
     />
   ) : (
     <NavDesktop
       activePath={activePath}
       cartOpen={cartOpen}
-      cartItmes={cartItems}
+      cartItems={cartItems}
+      cartTotal={cartTotal}
       handleShowCart={handleShowCart}
     />
   );
