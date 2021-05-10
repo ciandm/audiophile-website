@@ -1,0 +1,96 @@
+@import '../../style/variables';
+@import '../../style/utilities';
+@import '../../style/typography';
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  padding: 114px 24px 24px 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.modalContainer {
+  @include max-width;
+  margin: 0 auto;
+}
+
+.modal {
+  @include flex-column;
+  background-color: $white;
+  border-radius: 8px;
+  margin-left: auto;
+  max-width: 376px;
+  padding: 32px 28px;
+}
+
+.cartHeader {
+  @include flex-row;
+  justify-content: space-between;
+}
+
+.cartTitle {
+  @include HeadingSix;
+  color: $black;
+}
+
+.cartRemoveAll {
+  @include Body;
+  background: none;
+  border: none;
+  color: $black;
+  cursor: pointer;
+  opacity: 0.5;
+  text-decoration: underline;
+}
+
+.cartContents {
+  @include grid-with-rows(1fr);
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.cartItem {
+  @include grid-with-columns(64px 1fr 96px);
+  align-items: center;
+  gap: 16px;
+}
+
+.cartImage {
+  background-color: $seaShell;
+  border-radius: 8px;
+  height: 64px;
+  width: 64px;
+}
+
+.cartItemDetails {
+  @include flex-column;
+}
+
+.cartItemTitle {
+  @include Body;
+  color: $black;
+}
+
+.cartItemPrice {
+  @include SubTitle;
+  color: $black;
+  opacity: 0.5;
+}
+
+.cartFooter {
+  @include flex-row;
+  @include Body;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.cartTotal {
+  @include HeadingSix;
+  color: $black;
+}

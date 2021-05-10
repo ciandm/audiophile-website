@@ -6,7 +6,9 @@
   @include flex-column;
   @include flex-center-contents;
   background: $black;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 500;
 }
 
