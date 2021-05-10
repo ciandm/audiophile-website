@@ -6,7 +6,7 @@ import styles from './Nav.module.scss';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import ProductShopCards from '../../ProductShopLinks/ProductShopCards/ProductShopCards';
 
-const NavMobile = ({ activePath }) => {
+const NavMobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => () => setMenuOpen(false), []);
 

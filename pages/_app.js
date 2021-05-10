@@ -1,6 +1,6 @@
 import '../src/style/styles.css';
 import Head from 'next/head';
-import Nav from '../src/components/shared/Nav/Nav';
+import PageTemplate from '../src/components/shared/PageTemplate/PageTemplate';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -12,8 +12,9 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Nav />
-      <Component {...pageProps} />
+      <PageTemplate>
+        <Component {...pageProps} />
+      </PageTemplate>
     </>
   );
 }
