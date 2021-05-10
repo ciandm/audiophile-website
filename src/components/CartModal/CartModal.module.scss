@@ -11,6 +11,11 @@
   right: 0;
   top: 0;
   z-index: -1;
+
+  @include for-desktop-up {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .modalContainer {
