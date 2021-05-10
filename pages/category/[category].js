@@ -2,8 +2,7 @@ import React from 'react';
 import CategoryBanner from '../../src/components/CategoryBanner/CategoryBanner';
 import CategoryProduct from '../../src/components/CategoryProduct/CategoryProduct';
 import CategoryProducts from '../../src/components/CategoryProducts/CategoryProducts';
-import ProductShopCards from '../../src/components/ProductShopCards/ProductShopCards';
-import ProductShopCard from '../../src/components/ProductShopCards/ProductShopCard/ProductShopCard';
+import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
 
 function SelectedCategoryPage({ category, products }) {
   return (
@@ -22,7 +21,7 @@ function SelectedCategoryPage({ category, products }) {
           />
         ))}
       </CategoryProducts>
-      <ProductShopCards />
+      <ProductShopLinks />
     </>
   );
 }

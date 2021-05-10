@@ -1,28 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useWindowSize from '../../../hooks/useWindowSize';
 import styles from './Nav.module.scss';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
+import ProductShopCards from '../../ProductShopLinks/ProductShopCards/ProductShopCards';
 
-const NavMobile = ({ activePath }) => (
-  <nav className={styles.nav}>
-    <div className={styles.contents}>
-      <button className={`${styles.nav_button} ${styles.menu}`} type="button">
-        &nbsp;
-      </button>
-      <div className={styles.logo}>
-        <ResponsiveImage
-          src="/assets/shared/desktop/logo.svg"
-          alt="Audiophile logo"
-        />
+const NavMobile = ({ activePath }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => () => setMenuOpen(false), []);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(prevState => !prevState);
+  };
+
+  return (
+    <nav className={styles.nav}>
+      {menuOpen ? (
+        <div className={styles.overlay} onClick={handleMenuToggle} />
+      ) : null}
+      <div className={styles.header}>
+        <div className={styles.contents}>
+          <button
+            className={`${styles.nav_button} ${styles.menu}`}
+            type="button"
+            onClick={handleMenuToggle}
+          >
+            &nbsp;
+          </button>
+          <div className={styles.logo}>
+            <ResponsiveImage
+              src="/assets/shared/desktop/logo.svg"
+              alt="Audiophile logo"
+            />
+          </div>
+          <button
+            className={`${styles.nav_button} ${styles.cart}`}
+            type="button"
+          >
+            &nbsp;
+          </button>
+        </div>
       </div>
-      <button className={`${styles.nav_button} ${styles.cart}`} type="button">
-        &nbsp;
-      </button>
-    </div>
-  </nav>
-);
+      {menuOpen ? (
+        <div className={styles.footer}>
+          <ProductShopCards />
+        </div>
+      ) : null}
+    </nav>
+  );
+};
 
 const NavDesktop = ({ activePath }) => (
   <nav className={styles.nav}>

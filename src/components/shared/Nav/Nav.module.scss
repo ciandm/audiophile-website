@@ -3,9 +3,35 @@
 @import '../../../style/variables';
 
 .nav {
-  @include flex-row;
+  @include flex-column;
   @include flex-center-contents;
   background: $black;
+  position: relative;
+  z-index: 500;
+}
+
+.overlay {
+  background: hsla(0, 0%, 0%, 0.5);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.header {
+  width: 100%;
+}
+
+.footer {
+  background: $white;
+  padding: 84px 24px 36px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
 }
 
 .contents {
