@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResponsiveImage from '../../shared/ResponsiveImage/ResponsiveImage';
 import styles from './CartItem.module.scss';
+import QuantityButton from '../../shared/QuantityButton/QuantityButton';
 
 const CartItem = ({ image, title, price, quantity }) => (
   <div className={styles.cartItem}>
@@ -14,6 +15,7 @@ const CartItem = ({ image, title, price, quantity }) => (
         $ {new Intl.NumberFormat().format(price)}
       </span>
     </div>
+    <QuantityButton />
   </div>
 );
 

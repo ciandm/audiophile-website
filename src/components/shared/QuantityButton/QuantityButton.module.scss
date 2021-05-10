@@ -1,0 +1,40 @@
+@import '../../../style/variables';
+@import '../../../style/utilities';
+
+.button {
+  @include grid-with-columns(16px 1fr 16px);
+  align-items: center;
+  background-color: $seaShell;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+.decrement,
+.increment {
+  border: none;
+  color: $black;
+  cursor: pointer;
+  opacity: 0.2;
+
+  &:hover:not(.disabled) {
+    color: $rawSienna;
+    opacity: 1;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.decrement,
+.increment,
+.value {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+.value {
+  color: $black;
+}
