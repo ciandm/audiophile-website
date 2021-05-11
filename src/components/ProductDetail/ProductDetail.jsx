@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './ProductDetail.module.scss';
 import Button from '../shared/Button/Button';
 import ResponsiveImage from '../shared/ResponsiveImage/ResponsiveImage';
-import QuantityButton from '../shared/QuantityButton/QuantityButton';
+import AddToCartQuantity from '../AddToCartQuantity/AddToCartQuantity';
 
 function ProductDetail({
   newItem,
@@ -49,12 +49,7 @@ function ProductDetail({
           </span>
         )}
         {hasAddToCart ? (
-          <div className={styles.cartControls}>
-            <QuantityButton restrictZero />
-            <Button type="button" variation="primary">
-              Add to cart
-            </Button>
-          </div>
+          <AddToCartQuantity restrictZero />
         ) : (
           <Button type="link" href={`/products/${slug}`} variation="primary">
             See Product

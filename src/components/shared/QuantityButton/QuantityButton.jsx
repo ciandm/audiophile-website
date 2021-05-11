@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuantityButton.module.scss';
+import useItemQuantity from '../../../hooks/useItemQuantity';
 
 function QuantityButton({ restrictZero, quantity }) {
-  const [value, setValue] = useState(quantity || 1);
-
-  const handleDecrement = () => {
-    if (value === 0 || (restrictZero && value === 1)) return;
-    setValue(prevValue => prevValue - 1);
-  };
-
-  const handleIncrement = () => {
-    setValue(prevValue => prevValue + 1);
-  };
+  const { handleDecrement, handleIncrement, value } = useItemQuantity(
+    restrictZero
+  );
 
   return (
     <div className={styles.button}>

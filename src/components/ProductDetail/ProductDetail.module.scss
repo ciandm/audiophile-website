@@ -136,6 +136,6 @@
 }
 
 .cartControls {
-  @include grid-with-columns(max-content max-content);
+  @include grid-with-columns(120px max-content);
   gap: 16px;
 }
