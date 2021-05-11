@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryBanner from '../../src/components/CategoryBanner/CategoryBanner';
-import CategoryProduct from '../../src/components/CategoryProduct/CategoryProduct';
+import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import CategoryProducts from '../../src/components/CategoryProducts/CategoryProducts';
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
 
@@ -10,7 +10,7 @@ function SelectedCategoryPage({ category, products }) {
       <CategoryBanner category={category} />
       <CategoryProducts>
         {products.map(p => (
-          <CategoryProduct
+          <ProductDetail
             key={p._id}
             imageSrc={p.image.desktop}
             alt={p.name}
@@ -18,6 +18,8 @@ function SelectedCategoryPage({ category, products }) {
             description={p.description}
             newItem={p.new}
             slug={p.slug}
+            price={2999}
+            hasAddToCart
           />
         ))}
       </CategoryProducts>

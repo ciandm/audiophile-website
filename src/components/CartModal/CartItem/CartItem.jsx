@@ -15,7 +15,7 @@ const CartItem = ({ image, title, price, quantity }) => (
         $ {new Intl.NumberFormat().format(price)}
       </span>
     </div>
-    <QuantityButton />
+    <QuantityButton quantity={quantity} />
   </div>
 );
 

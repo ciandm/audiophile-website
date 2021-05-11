@@ -1,0 +1,141 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.product {
+  @include flex-column;
+
+  @include for-desktop-up {
+    @include flex-row;
+
+    &:nth-child(2n+2) {
+      .content {
+        order: -1;
+        padding-left: 0;
+        padding-right: 128px;
+      }
+    }
+  }
+}
+
+.productAlternate {
+  @extend .product;
+
+  @include for-tablet-up {
+    @include flex-row;
+    align-items: center;
+  }
+}
+
+.imageContainer {
+  background: $seaShell;
+  border-radius: 8px;
+  height: 352px;
+  overflow: hidden;
+  position: relative;
+
+  @include for-desktop-up {
+    flex-shrink: 0;
+    height: 560px;
+    width: 540px;
+  }
+}
+
+.imageContainerAlternate {
+  @extend .imageContainer;
+
+  @include for-tablet-up {
+    flex-basis: 41.66667%;
+    flex-shrink: 0;
+    height: 480px;
+    margin-right: 68px;
+    width: 41.66667%;
+  }
+
+  @include for-desktop-up {
+    margin-right: 0;
+  }
+}
+
+.content {
+  @include grid-with-rows(repeat(4, max-content));
+  gap: 16px;
+  justify-items: center;
+  padding-top: 32px;
+  text-align: center;
+
+  @include for-tablet-up {
+    margin: 0 auto;
+    max-width: 83.3333%;
+    padding-top: 52px;
+    width: 100%;
+  }
+
+  @include for-desktop-up {
+    align-content: center;
+    gap: 16px;
+    justify-items: start;
+    padding-left: 128px;
+    padding-top: 0;
+    text-align: left;
+  }
+}
+
+.contentAlternate {
+  @extend .content;
+  gap: 24px;
+  justify-items: start;
+  padding-top: 40px;
+  text-align: left;
+
+  @include for-tablet-up {
+    padding-top: 0;
+  }
+
+  @include for-desktop-up {
+    gap: 16px;
+  }
+}
+
+.overline {
+  @include Overline;
+  color: $rawSienna;
+}
+
+.title {
+  @include HeadingTwo;
+  color: $black;
+}
+
+.description {
+  @include Body;
+  opacity: 0.5;
+
+  @include for-tablet-up {
+    padding: 16px 0 24px 0;
+
+    &.tighterPadding {
+      padding-bottom: 16px;  
+    }
+  }
+
+}
+
+.price {
+  @include HeadingSix;
+  color: $black;
+  padding: 0 0 8px 0;
+
+  @include for-tablet-up {
+    padding: 0 0 16px 0;
+  }
+
+  @include for-desktop-up {
+    padding: 0 0 32px 0;
+  }
+}
+
+.cartControls {
+  @include grid-with-columns(max-content max-content);
+  gap: 16px;
+}
