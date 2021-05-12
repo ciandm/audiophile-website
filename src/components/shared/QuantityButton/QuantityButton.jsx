@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './QuantityButton.module.scss';
-import useItemQuantity from '../../../hooks/useItemQuantity';
 
-function QuantityButton({ restrictZero, quantity }) {
-  const { handleDecrement, handleIncrement, value } = useItemQuantity(
-    restrictZero
-  );
-
+function QuantityButton({
+  restrictZero,
+  handleDecrement,
+  handleIncrement,
+  quantity,
+}) {
   return (
     <div className={styles.button}>
       <button
         type="button"
         className={`${styles.decrement} ${
-          value === 0 || (restrictZero && value === 1)
+          quantity === 0 || (restrictZero && quantity === 1)
             ? `${styles.disabled}`
             : ''
         }`}
@@ -21,7 +21,7 @@ function QuantityButton({ restrictZero, quantity }) {
       >
         -
       </button>
-      <div className={styles.value}>{value}</div>
+      <div className={styles.quantity}>{quantity}</div>
       <button
         type="button"
         className={styles.increment}
@@ -36,6 +36,8 @@ function QuantityButton({ restrictZero, quantity }) {
 export default QuantityButton;
 
 QuantityButton.propTypes = {
-  quantity: PropTypes.number,
+  handleDecrement: PropTypes.func.isRequired,
+  handleIncrement: PropTypes.func.isRequired,
+  quantity: PropTypes.number.isRequired,
   restrictZero: PropTypes.bool,
 };

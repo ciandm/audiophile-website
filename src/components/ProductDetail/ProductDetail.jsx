@@ -6,6 +6,7 @@ import ResponsiveImage from '../shared/ResponsiveImage/ResponsiveImage';
 import AddToCartQuantity from '../AddToCartQuantity/AddToCartQuantity';
 
 function ProductDetail({
+  itemId,
   newItem,
   title,
   imageSrc,
@@ -49,7 +50,10 @@ function ProductDetail({
           </span>
         )}
         {hasAddToCart ? (
-          <AddToCartQuantity restrictZero />
+          <AddToCartQuantity
+            restrictZero
+            itemDetails={{ id: itemId, price, src: imageSrc, title }}
+          />
         ) : (
           <Button type="link" href={`/products/${slug}`} variation="primary">
             See Product
@@ -66,6 +70,7 @@ ProductDetail.propTypes = {
   description: PropTypes.string.isRequired,
   hasAddToCart: PropTypes.bool,
   imageSrc: PropTypes.string.isRequired,
+  itemId: PropTypes.string,
   newItem: PropTypes.bool,
   slug: PropTypes.string,
   title: PropTypes.string.isRequired,

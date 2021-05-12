@@ -50,6 +50,10 @@
   cursor: pointer;
   opacity: 0.5;
   text-decoration: underline;
+
+  &:hover {
+    color: $rawSienna;
+  }
 }
 
 .cartContents {

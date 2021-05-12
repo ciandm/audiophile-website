@@ -1,21 +1,21 @@
 import { useState, useCallback } from 'react';
 
 function useItemQuantity(restrictZero) {
-  const [value, setValue] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   const handleDecrement = useCallback(() => {
-    if (value === 0 || (restrictZero && value === 1)) return;
-    setValue(prevValue => prevValue - 1);
-  }, [value, restrictZero]);
+    if (quantity === 0 || (restrictZero && quantity === 1)) return;
+    setQuantity(prevValue => prevValue - 1);
+  }, [quantity, restrictZero]);
 
   const handleIncrement = useCallback(() => {
-    setValue(prevValue => prevValue + 1);
+    setQuantity(prevValue => prevValue + 1);
   }, []);
 
   return {
     handleDecrement,
     handleIncrement,
-    value,
+    quantity,
   };
 }
 

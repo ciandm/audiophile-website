@@ -7,8 +7,13 @@ import { useCartContext } from '../context/CartContext';
 
 function CartModal({ cartItems, cartTotal }) {
   const { handleShowCart } = useCartContext();
+
+  const handleOverlayClick = e => {
+    if (e.target !== e.currentTarget) return;
+    handleShowCart();
+  };
   return (
-    <div className={styles.overlay} onClick={handleShowCart}>
+    <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={styles.modalContainer}>
         <div className={styles.modal}>
           <div className={styles.cartHeader}>

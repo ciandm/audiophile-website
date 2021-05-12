@@ -12,6 +12,7 @@ function SelectedCategoryPage({ category, products }) {
         {products.map(p => (
           <ProductDetail
             key={p._id}
+            itemId={p._id}
             imageSrc={p.image.desktop}
             alt={p.name}
             title={p.name}

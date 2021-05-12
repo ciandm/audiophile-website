@@ -6,6 +6,7 @@
   align-items: center;
   background-color: $seaShell;
   gap: 8px;
+  justify-items: center;
   max-width: 120px;
   padding: 8px 12px;
   width: 100%;
@@ -37,6 +38,6 @@
   text-align: center;
 }
 
-.value {
+.quantity {
   color: $black;
 }
