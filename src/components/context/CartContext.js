@@ -36,8 +36,13 @@ function CartContext({ children }) {
   }, []);
 
   useEffect(() => {
-    if (cartItems.length === 0) return;
-    setCartTotal(cartItems.reduce((acc, curr) => acc + curr.price, 0));
+    if (cartItems.length === 0) {
+      setCartTotal(0);
+      return;
+    }
+    setCartTotal(
+      cartItems.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+    );
   }, [cartItems]);
 
   const handleShowCart = () => {
@@ -48,12 +53,13 @@ function CartContext({ children }) {
     // check if item is in cart already
     if (
       cartItems.length > 0 &&
-      cartItems.find(i => i.id === itemDetails.id).length > 0
+      cartItems.find(i => i.id === itemDetails.id) !== undefined
     ) {
       const indexOf = cartItems.findIndex(i => i.id === itemDetails.id);
       const copiedCart = [...cartItems];
       copiedCart[indexOf].quantity += quantity;
       setCartItems(copiedCart);
+      return;
     }
     setCartItems(prevCartItems => [
       ...prevCartItems,
@@ -70,6 +76,24 @@ function CartContext({ children }) {
     ]);
   };
 
+  const handleChangeQuantityInCart = (choice, itemId) => {
+    // choice should either be decrement or increment
+    let copiedCart = [...cartItems];
+    const indexOf = cartItems.findIndex(i => i.id === itemId);
+    if (choice === 'increment') {
+      copiedCart[indexOf].quantity += 1;
+    }
+    if (choice === 'decrement') {
+      // if it reaches 1, and they decrement, remove it altogether
+      if (copiedCart[indexOf].quantity === 1) {
+        copiedCart = copiedCart.filter(i => i.id !== itemId);
+      } else {
+        copiedCart[indexOf].quantity -= 1;
+      }
+    }
+    setCartItems(copiedCart);
+  };
+
   const handleRemoveAllItems = async () => {
     setCartItems([]);
   };
@@ -81,6 +105,7 @@ function CartContext({ children }) {
         cartOpen,
         cartTotal,
         handleAddToCart,
+        handleChangeQuantityInCart,
         handleShowCart,
       }}
     >
