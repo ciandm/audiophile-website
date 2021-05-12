@@ -19,8 +19,6 @@ function SelectedCategoryPage({ category, products }) {
             description={p.description}
             newItem={p.new}
             slug={p.slug}
-            price={2999}
-            hasAddToCart
           />
         ))}
       </CategoryProducts>
