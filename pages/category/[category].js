@@ -10,16 +10,7 @@ function SelectedCategoryPage({ category, products }) {
       <CategoryBanner category={category} />
       <CategoryProducts>
         {products.map(p => (
-          <ProductDetail
-            key={p._id}
-            itemId={p._id}
-            imageSrc={p.image.desktop}
-            alt={p.name}
-            title={p.name}
-            description={p.description}
-            newItem={p.new}
-            slug={p.slug}
-          />
+          <ProductDetail key={p._id} {...p} />
         ))}
       </CategoryProducts>
       <ProductShopLinks />

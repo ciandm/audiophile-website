@@ -17,7 +17,7 @@ function CartModal({ cartItems, cartTotal }) {
       <div className={styles.modalContainer}>
         <div className={styles.modal}>
           <div className={styles.cartHeader}>
-            <h6 className={styles.cartTitle}>Cart (3)</h6>
+            <h6 className={styles.cartTitle}>Cart ({cartItems.length})</h6>
             <button type="button" className={styles.cartRemoveAll}>
               Remove all
             </button>

@@ -1,0 +1,22 @@
+@import '../../style/variables';
+@import '../../style/utilities';
+
+.section {
+  @include flex-column;
+  @include flex-center-contents;
+  padding: 60px 24px;
+
+  @include for-tablet-up {
+    padding: 120px 40px 60px
+  }
+
+  @include for-desktop-up {
+    padding: 160px 0 80px;
+  }
+}
+
+.details {
+  @include flex-column;
+  @include max-width;
+  width: 100%;
+}

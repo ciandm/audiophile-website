@@ -6,14 +6,14 @@ import ResponsiveImage from '../shared/ResponsiveImage/ResponsiveImage';
 import AddToCartQuantity from '../AddToCartQuantity/AddToCartQuantity';
 
 function ProductDetail({
+  hasAddToCart,
   itemId,
-  newItem,
-  title,
-  imageSrc,
+  new: newItem,
+  name,
+  image,
   description,
   price,
   slug,
-  hasAddToCart,
 }) {
   return (
     <div
@@ -28,7 +28,7 @@ function ProductDetail({
             : `${styles.imageContainer}`
         }
       >
-        <ResponsiveImage src={imageSrc} alt={title} objectFit="contain" />
+        <ResponsiveImage src={image.desktop} alt={name} objectFit="contain" />
       </div>
       <div
         className={
@@ -36,7 +36,7 @@ function ProductDetail({
         }
       >
         {newItem ? <span className={styles.overline}>New product</span> : null}
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.name}>{name}</h2>
         <p
           className={`${styles.description} ${
             price ? `${styles.tighterPadding}` : ''
@@ -52,7 +52,7 @@ function ProductDetail({
         {hasAddToCart ? (
           <AddToCartQuantity
             restrictZero
-            itemDetails={{ id: itemId, price, src: imageSrc, title }}
+            itemDetails={{ id: itemId, name, price, src: image.desktop }}
           />
         ) : (
           <Button type="link" href={`/products/${slug}`} variation="primary">
@@ -69,9 +69,9 @@ export default ProductDetail;
 ProductDetail.propTypes = {
   description: PropTypes.string.isRequired,
   hasAddToCart: PropTypes.bool,
-  imageSrc: PropTypes.string.isRequired,
+  image: PropTypes.oneOfType([PropTypes.array]),
   itemId: PropTypes.string,
-  newItem: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  new: PropTypes.bool,
   slug: PropTypes.string,
-  title: PropTypes.string.isRequired,
 };

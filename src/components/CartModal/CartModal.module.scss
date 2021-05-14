@@ -21,6 +21,7 @@
 .modalContainer {
   @include max-width;
   margin: 0 auto;
+  pointer-events: none;
 }
 
 .modal {
@@ -30,6 +31,7 @@
   margin-left: auto;
   max-width: 376px;
   padding: 32px 28px;
+  pointer-events: auto;
 }
 
 .cartHeader {

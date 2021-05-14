@@ -1,7 +1,13 @@
 import React from 'react';
+import Details from '../../src/components/Details/Details';
+import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 
 function ProductPage({ product }) {
-  return <h1>Product</h1>;
+  return (
+    <Details>
+      <ProductDetail hasAddToCart {...product} />
+    </Details>
+  );
 }
 
 export async function getStaticProps({ params }) {
