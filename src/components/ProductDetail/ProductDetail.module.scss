@@ -8,7 +8,7 @@
   @include for-desktop-up {
     @include flex-row;
 
-    &:nth-child(2n+2) {
+    &:nth-of-type(even) {
       .content {
         order: -1;
         padding-left: 0;
@@ -49,6 +49,7 @@
     flex-shrink: 0;
     height: 480px;
     margin-right: 68px;
+    order: -1;
     width: 41.66667%;
   }
 

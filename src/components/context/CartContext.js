@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
+import removeUnwantedProductWords from '../../../util/removeUnwantedProductWords';
 
 /*
   id,
@@ -40,12 +41,6 @@ function CartContext({ children }) {
   };
 
   const handleAddToCart = (itemDetails, quantity) => {
-    // On the cart model, the product name is truncated however this is not present in the database. As a result, I need to remove the unwanted words which make them wrap onto 2 lines.
-    const removeUnwantedWords = productName => {
-      const wordsToRemove = ['Speakers', 'Headphones', 'Earphones'];
-      const foundWord = wordsToRemove.find(word => productName.includes(word));
-      return foundWord ? productName.replace(foundWord, '') : productName;
-    };
     // check if item is in cart already
     if (
       cartItems.length > 0 &&
@@ -65,7 +60,7 @@ function CartContext({ children }) {
           alt: itemDetails.title,
           src: itemDetails.src,
         },
-        name: removeUnwantedWords(itemDetails.name),
+        name: removeUnwantedProductWords(itemDetails.name),
         price: itemDetails.price,
         quantity,
       },
@@ -90,7 +85,7 @@ function CartContext({ children }) {
     setCartItems(copiedCart);
   };
 
-  const handleRemoveAllItems = async () => {
+  const handleRemoveAllItems = () => {
     setCartItems([]);
   };
 
@@ -102,6 +97,7 @@ function CartContext({ children }) {
         cartTotal,
         handleAddToCart,
         handleChangeQuantityInCart,
+        handleRemoveAllItems,
         handleShowCart,
       }}
     >

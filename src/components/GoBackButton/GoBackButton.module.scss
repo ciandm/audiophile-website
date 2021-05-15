@@ -1,0 +1,19 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.button {
+  @include Body;
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: $black;
+  cursor: pointer;
+  margin-bottom: 24px;
+  opacity: 0.5;
+  outline: none;
+
+  @include for-desktop-up {
+    margin-bottom: 56px;
+  }
+}

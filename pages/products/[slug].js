@@ -1,14 +1,20 @@
 import React from 'react';
 import Details from '../../src/components/Details/Details';
+import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
 import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import ProductFeatures from '../../src/components/ProductFeatures/ProductFeatures';
+import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
 
 function ProductPage({ product }) {
   return (
-    <Details>
-      <ProductDetail hasAddToCart {...product} />
-      <ProductFeatures {...product} />
-    </Details>
+    <>
+      <Details>
+        <GoBackButton />
+        <ProductDetail hasAddToCart {...product} />
+        <ProductFeatures {...product} />
+      </Details>
+      <ProductShopLinks />
+    </>
   );
 }
 
