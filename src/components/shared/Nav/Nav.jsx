@@ -8,7 +8,13 @@ import ProductShopCards from '../../ProductShopLinks/ProductShopCards/ProductSho
 import CartModal from '../../CartModal/CartModal';
 import { useCartContext } from '../../context/CartContext';
 
-const NavMobile = ({ cartOpen, cartItems, cartTotal, handleShowCart }) => {
+const NavMobile = ({
+  cartOpen,
+  cartItems,
+  cartItemCount,
+  cartTotal,
+  handleShowCart,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => () => setMenuOpen(false), []);
 
@@ -36,13 +42,16 @@ const NavMobile = ({ cartOpen, cartItems, cartTotal, handleShowCart }) => {
               alt="Audiophile logo"
             />
           </div>
-          <button
-            className={`${styles.nav_button} ${styles.cart}`}
-            type="button"
-            onClick={handleShowCart}
-          >
-            &nbsp;
-          </button>
+          <div className={styles.cartButton}>
+            <button
+              className={`${styles.nav_button} ${styles.cart}`}
+              type="button"
+              onClick={handleShowCart}
+            >
+              &nbsp;
+            </button>
+            <span className={styles.cartCount}>{cartItemCount}</span>
+          </div>
         </div>
       </div>
       {menuOpen ? (
@@ -61,6 +70,7 @@ const NavDesktop = ({
   activePath,
   cartOpen,
   cartItems,
+  cartItemCount,
   cartTotal,
   handleShowCart,
 }) => (
@@ -118,13 +128,16 @@ const NavDesktop = ({
           </Link>
         </li>
       </ul>
-      <button
-        className={`${styles.nav_button} ${styles.cart}`}
-        type="button"
-        onClick={handleShowCart}
-      >
-        &nbsp;
-      </button>
+      <div className={styles.cartButton}>
+        <button
+          className={`${styles.nav_button} ${styles.cart}`}
+          type="button"
+          onClick={handleShowCart}
+        >
+          &nbsp;
+        </button>
+        <span className={styles.cartCount}>{cartItemCount}</span>
+      </div>
     </div>
     {cartOpen ? (
       <CartModal cartItems={cartItems} cartTotal={cartTotal} />
@@ -135,13 +148,20 @@ const NavDesktop = ({
 function Nav() {
   const windowSize = useWindowSize();
   const router = useRouter();
-  const { cartOpen, cartItems, cartTotal, handleShowCart } = useCartContext();
+  const {
+    cartItemCount,
+    cartOpen,
+    cartItems,
+    cartTotal,
+    handleShowCart,
+  } = useCartContext();
   const activePath = router.asPath;
   return windowSize < 1110 ? (
     <NavMobile
       activePath={activePath}
       cartOpen={cartOpen}
       cartItems={cartItems}
+      cartItemCount={cartItemCount}
       cartTotal={cartTotal}
       handleShowCart={handleShowCart}
     />
@@ -150,6 +170,7 @@ function Nav() {
       activePath={activePath}
       cartOpen={cartOpen}
       cartItems={cartItems}
+      cartItemCount={cartItemCount}
       cartTotal={cartTotal}
       handleShowCart={handleShowCart}
     />

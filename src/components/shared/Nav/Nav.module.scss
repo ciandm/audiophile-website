@@ -82,6 +82,27 @@
   }
 }
 
+.cartButton {
+  position: relative;
+}
+
+.cartCount {
+  @include flex-row;
+  align-items: center;
+  background: $rawSienna;
+  border-radius: 8px;
+  color: $white;
+  font-size: 10px;
+  font-weight: 700;
+  height: 16px;
+  justify-content: center;
+  left: 70%;
+  pointer-events: none;
+  position: absolute;
+  top: 70%;
+  width: 16px;
+}
+
 .links {
   @include flex-row;
   @include grid-with-columns(repeat(4, max-content));

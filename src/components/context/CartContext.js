@@ -19,6 +19,7 @@ function CartContext({ children }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [cartItemCount, setItemCount] = useState(0);
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart'));
@@ -34,6 +35,7 @@ function CartContext({ children }) {
     setCartTotal(
       cartItems.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
     );
+    setItemCount(cartItems.reduce((acc, current) => acc + current.quantity, 0));
   }, [cartItems]);
 
   const handleShowCart = () => {
@@ -92,6 +94,7 @@ function CartContext({ children }) {
   return (
     <UserCartContext.Provider
       value={{
+        cartItemCount,
         cartItems,
         cartOpen,
         cartTotal,
