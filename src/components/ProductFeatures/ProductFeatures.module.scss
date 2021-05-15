@@ -1,0 +1,91 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.features {
+  @include flex-column;
+  padding: 88px 0 60px;
+
+  @include for-tablet-up {
+    padding: 120px 0 60px;
+  }
+
+  @include for-desktop-up {
+    padding: 160px 0 80px;
+  }
+}
+
+.container {
+  @include grid-with-rows(max-content max-content);
+  gap: 88px;
+
+  @include for-tablet-up {
+    gap: 120px;
+  }
+
+  @include for-desktop-up {
+    @include flex-row;
+    gap: unset;
+    justify-content: space-between;
+  }
+}
+
+.description,
+.contains {
+  @include grid-with-rows(max-content max-content);
+  gap: 24px;
+}
+
+.description {
+  @include for-desktop-up {
+    flex-basis: 58.33333%;
+    max-width: 58.33333%;
+  }
+}
+
+.contains {
+  @include for-desktop-up {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+
+.heading {
+  @include HeadingThree;
+  color: $black;
+}
+
+.paragraphs {
+  @include flex-column
+}
+
+.paragraph,
+.item {
+  color: $black;
+  opacity: 0.5;
+}
+
+.paragraph {
+  @include Body;
+
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.contents {
+  @include grid-with-rows(max-content);
+  gap: 8px;
+  list-style: none;
+}
+
+.content {
+  @include flex-row;
+  @include Body;
+}
+
+.quantity {
+  color: $rawSienna;
+  font-weight: 700;
+  padding-right: 24px;
+}

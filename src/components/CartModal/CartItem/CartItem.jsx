@@ -5,7 +5,7 @@ import styles from './CartItem.module.scss';
 import QuantityButton from '../../shared/QuantityButton/QuantityButton';
 import { useCartContext } from '../../context/CartContext';
 
-const CartItem = ({ id, image, title, price, quantity }) => {
+const CartItem = ({ id, image, name, price, quantity }) => {
   const { handleChangeQuantityInCart } = useCartContext();
   return (
     <div className={styles.cartItem}>
@@ -13,7 +13,7 @@ const CartItem = ({ id, image, title, price, quantity }) => {
         <ResponsiveImage src={image.src} alt={image.alt} />
       </div>
       <div className={styles.cartItemDetails}>
-        <p className={styles.cartItemTitle}>{title}</p>
+        <p className={styles.cartItemTitle}>{name}</p>
         <span className={styles.cartItemPrice}>
           $ {new Intl.NumberFormat().format(price)}
         </span>
@@ -34,7 +34,7 @@ CartItem.propTypes = {
     alt: PropTypes.string,
     src: PropTypes.string,
   }).isRequired,
+  name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
 };

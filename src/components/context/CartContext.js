@@ -20,22 +20,12 @@ function CartContext({ children }) {
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
-    // setCartItems([
-    //   {
-    //     id: 1,
-    //     image: {
-    //       alt: 'XX99 MKII Headphones',
-    //       src:
-    //         '/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg',
-    //     },
-    //     price: 2999,
-    //     quantity: 1,
-    //     title: 'XX99 MKII',
-    //   },
-    // ]);
+    const savedCart = JSON.parse(localStorage.getItem('cart'));
+    setCartItems(savedCart);
   }, []);
 
   useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
     if (cartItems.length === 0) {
       setCartTotal(0);
       return;
@@ -50,6 +40,12 @@ function CartContext({ children }) {
   };
 
   const handleAddToCart = (itemDetails, quantity) => {
+    // On the cart model, the product name is truncated however this is not present in the database. As a result, I need to remove the unwanted words which make them wrap onto 2 lines.
+    const removeUnwantedWords = productName => {
+      const wordsToRemove = ['Speakers', 'Headphones', 'Earphones'];
+      const foundWord = wordsToRemove.find(word => productName.includes(word));
+      return foundWord ? productName.replace(foundWord, '') : productName;
+    };
     // check if item is in cart already
     if (
       cartItems.length > 0 &&
@@ -69,9 +65,9 @@ function CartContext({ children }) {
           alt: itemDetails.title,
           src: itemDetails.src,
         },
+        name: removeUnwantedWords(itemDetails.name),
         price: itemDetails.price,
         quantity,
-        title: itemDetails.title,
       },
     ]);
   };

@@ -7,7 +7,7 @@ import AddToCartQuantity from '../AddToCartQuantity/AddToCartQuantity';
 
 function ProductDetail({
   hasAddToCart,
-  itemId,
+  _id,
   new: newItem,
   name,
   image,
@@ -52,7 +52,7 @@ function ProductDetail({
         {hasAddToCart ? (
           <AddToCartQuantity
             restrictZero
-            itemDetails={{ id: itemId, name, price, src: image.desktop }}
+            itemDetails={{ id: _id, name, price, src: image.desktop }}
           />
         ) : (
           <Button type="link" href={`/products/${slug}`} variation="primary">
