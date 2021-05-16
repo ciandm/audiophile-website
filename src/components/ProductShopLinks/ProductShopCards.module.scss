@@ -3,10 +3,14 @@
 .section {
   @include flex-column;
   @include flex-center-contents;
-  padding: 60px 24px;
+  padding: 110px 24px 60px;
 
   @include for-tablet-up {
-    padding: 112px 40px;
+    padding: 110px 40px 60px;
+  }
+
+  @include for-desktop-up {
+    padding: 140px 0 80px;
   }
 }
 

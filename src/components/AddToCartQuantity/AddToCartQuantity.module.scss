@@ -1,6 +1,8 @@
 @import '../../style/utilities';
 
 .addToCart {
-  @include grid-with-columns(120px max-content);
+  @include flex-row;
+  flex-wrap: wrap;
   gap: 16px;
+  width: 100%;
 }

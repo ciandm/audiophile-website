@@ -5,6 +5,7 @@ import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
 import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import ProductFeatures from '../../src/components/ProductFeatures/ProductFeatures';
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
+import SuggestedProducts from '../../src/components/SuggestedProducts/SuggestedProducts';
 
 function ProductPage({ product }) {
   return (
@@ -15,6 +16,7 @@ function ProductPage({ product }) {
         <ProductFeatures {...product} />
       </Details>
       <Gallery name={product.name} images={product.gallery} />
+      <SuggestedProducts products={product.others} />
       <ProductShopLinks />
     </>
   );
