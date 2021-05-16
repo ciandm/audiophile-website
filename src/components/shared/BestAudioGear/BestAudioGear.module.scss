@@ -3,6 +3,7 @@
 @import '../../../style/utilities';
 
 .section {
+  background-color: $white;
   padding: 60px 24px;
 
   @include for-tablet-up {

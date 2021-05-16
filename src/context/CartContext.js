@@ -36,6 +36,7 @@ function CartContext({ children }) {
 
   const handleShowCart = () => {
     setCartOpen(prevState => !prevState);
+    document.body.classList.toggle('noScroll');
   };
 
   const handleAddToCart = (itemDetails, quantity) => {

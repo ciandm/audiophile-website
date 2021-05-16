@@ -5,6 +5,7 @@
 .section {
   @include flex-column;
   @include flex-center-contents;
+  background-color: $white;
   padding: 44px 24px 60px;
 
   @include for-tablet-up {

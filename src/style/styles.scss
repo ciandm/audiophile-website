@@ -1,3 +1,5 @@
+@import '../style/variables';
+
 *,
 *::before,
 *::after {
@@ -7,7 +9,12 @@
 }
 
 body {
+  background-color: $black;
   font-family: 'Manrope', 'Helvetica Neue', 'Helvetica',
     'Arial', sans-serif;
-  margin-top: 90px;
+
+  &.noScroll {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }

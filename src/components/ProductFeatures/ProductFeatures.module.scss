@@ -4,6 +4,7 @@
 
 .features {
   @include flex-column;
+  background-color: $white;
   padding: 88px 0 0;
 
   @include for-tablet-up {

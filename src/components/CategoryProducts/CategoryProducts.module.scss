@@ -1,8 +1,10 @@
+@import '../../style/variables';
 @import '../../style/utilities';
 
 .section {
   @include flex-column;
   @include flex-center-contents;
+  background-color: $white;
   padding: 60px 24px;
 
   @include for-tablet-up {

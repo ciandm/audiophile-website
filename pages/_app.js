@@ -1,4 +1,4 @@
-import '../src/style/styles.css';
+import '../src/style/styles.scss';
 import Head from 'next/head';
 import PageTemplate from '../src/components/shared/PageTemplate/PageTemplate';
 

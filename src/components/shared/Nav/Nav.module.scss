@@ -5,10 +5,8 @@
 .nav {
   @include flex-column;
   @include flex-center-contents;
-  background: $black;
   height: 90px;
-  position: fixed;
-  top: 0;
+  position: relative;
   width: 100%;
   z-index: 500;
 }
