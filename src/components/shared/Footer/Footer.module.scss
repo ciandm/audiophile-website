@@ -1,0 +1,166 @@
+@import '../../../style/variables';
+@import '../../../style/utilities';
+@import '../../../style/typography';
+
+.footer {
+  background: $codGray;
+  padding: 52px 24px 38px;
+
+  @include for-tablet-up {
+    padding: 60px 40px 48px;
+  }
+
+  @include for-desktop-up {
+    padding: 72px 0 48px;
+  }
+}
+
+.navigation {
+  @include for-desktop-up {
+    @include flex-row;
+    width: 100%;
+  }
+}
+
+.content {
+  @include max-width;
+  @include flex-column;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: $rawSienna;
+    content: '';
+    display: block;
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    top: -52px;
+    transform: translateX(-50%);
+    width: 100px;
+
+    @include for-tablet-up {
+      left: 0;
+      top: -60px;
+      transform: none;
+    }
+
+    @include for-desktop-up {
+      top: -72px;
+    }
+  }
+
+  @include for-tablet-up {
+    align-items: flex-start;
+  }
+}
+
+.logo {
+  height: 24px;
+  margin-bottom: 48px;
+
+  @include for-tablet-up {
+    margin-bottom: 32px;
+  }
+
+  @include for-desktop-up {
+    margin-bottom: 36px;
+  }
+}
+
+.links {
+  @include grid-with-rows(1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+  text-align: center;
+
+  @include for-tablet-up {
+    @include flex-row;
+    margin-bottom: 32px;
+  }
+
+  @include for-desktop-up {
+    gap: 32px;
+    margin-left: auto;
+  }
+}
+
+.link {
+  @include SubTitle;
+  color: $white;
+  text-decoration: none;
+
+  &.active {
+    color: $rawSienna;
+  }
+}
+
+.info {
+  @include flex-column;
+  align-items: center;
+
+  @include for-tablet-up {
+    @include grid-with-columns(1fr max-content);
+    grid-template-rows: max-content max-content;
+  }
+
+  @include for-desktop-up {
+    grid-template-columns: 540px 1fr;
+    width: 100%;
+  }
+}
+
+.bio,
+.copyright {
+  @include Body;
+  color: $white;
+  opacity: 0.5;
+  text-align: center;
+
+  @include for-tablet-up {
+    text-align: left;
+  }
+}
+
+.bio {
+  margin-bottom: 48px;
+
+  @include for-tablet-up {
+    grid-column: span 2;
+    grid-row: 1 / 2;
+  }
+
+  @include for-desktop-up {
+    grid-column: span 1;
+  }
+}
+
+.copyright {
+  font-weight: 700;
+
+  @include for-tablet-up {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+}
+
+.social {
+  @include flex-row;
+  gap: 16px;
+  padding-top: 48px;
+
+  @include for-tablet-up {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding-top: 0;
+  }
+
+  @include for-desktop-up {
+    align-self: end;
+    grid-row: 1 / 3;
+    justify-self: end;
+    padding-bottom: 88px;
+  }
+}

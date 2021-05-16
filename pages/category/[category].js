@@ -3,6 +3,7 @@ import CategoryBanner from '../../src/components/CategoryBanner/CategoryBanner';
 import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import CategoryProducts from '../../src/components/CategoryProducts/CategoryProducts';
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
+import BestAudioGear from '../../src/components/shared/BestAudioGear/BestAudioGear';
 
 function SelectedCategoryPage({ category, products }) {
   return (
@@ -14,6 +15,7 @@ function SelectedCategoryPage({ category, products }) {
         ))}
       </CategoryProducts>
       <ProductShopLinks />
+      <BestAudioGear />
     </>
   );
 }
