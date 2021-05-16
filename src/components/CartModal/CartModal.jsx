@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../shared/Button/Button';
-import CartItem from './CartItem/CartItem';
+import CartItem from '../CartItem/CartItem';
 import styles from './CartModal.module.scss';
 import { useCartContext } from '../../context/CartContext';
+import CartRowLabel from '../shared/CartRowLabel/CartRowLabel';
 
 function CartModal({ cartItems, cartTotal }) {
   const { handleShowCart, handleRemoveAllItems } = useCartContext();
@@ -28,14 +29,11 @@ function CartModal({ cartItems, cartTotal }) {
           </div>
           <div className={styles.cartContents}>
             {cartItems.map(i => (
-              <CartItem key={i.id} {...i} />
+              <CartItem key={i.id} {...i} hasControls />
             ))}
           </div>
           <div className={styles.cartFooter}>
-            <span>Total</span>
-            <p className={styles.cartTotal}>
-              $ {new Intl.NumberFormat().format(cartTotal)}
-            </p>
+            <CartRowLabel label="Total" value={cartTotal} />
           </div>
           <Button variation="primary" type="link" href="/checkout">
             Checkout

@@ -1,0 +1,22 @@
+@import '../../../style/variables';
+@import '../../../style/typography';
+@import '../../../style/utilities';
+
+.row {
+  @include flex-row;
+  @include Body;
+  align-items: center;
+  color: $black;
+  justify-content: space-between;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.label {
+  opacity: 0.5;
+}
+
+.value {
+  @include HeadingSix;
+  color: $black;
+}

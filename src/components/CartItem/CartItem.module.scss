@@ -1,6 +1,6 @@
-@import '../../../style/utilities';
-@import '../../../style/typography';
-@import '../../../style/variables';
+@import '../../style/utilities';
+@import '../../style/typography';
+@import '../../style/variables';
 
 .cartItem {
   @include grid-with-columns(64px 1fr 96px);
@@ -30,4 +30,14 @@
   @include SubTitle;
   color: $black;
   opacity: 0.5;
+}
+
+.quantity {
+  @include Body;
+  align-self: start;
+  color: $black;
+  font-weight: 700;
+  justify-self: end;
+  opacity: 0.5;
+  padding-top: 8px;
 }

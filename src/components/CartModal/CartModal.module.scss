@@ -62,18 +62,8 @@
   @include grid-with-rows(1fr);
   gap: 24px;
   padding: 32px 0;
-}
+};
 
 .cartFooter {
-  @include flex-row;
-  @include Body;
-  align-items: center;
-  justify-content: space-between;
   padding-bottom: 24px;
-  text-transform: uppercase;
-}
-
-.cartTotal {
-  @include HeadingSix;
-  color: $black;
 }

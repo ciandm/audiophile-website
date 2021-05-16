@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ResponsiveImage from '../../shared/ResponsiveImage/ResponsiveImage';
+import ResponsiveImage from '../shared/ResponsiveImage/ResponsiveImage';
 import styles from './CartItem.module.scss';
-import QuantityButton from '../../shared/QuantityButton/QuantityButton';
-import { useCartContext } from '../../../context/CartContext';
+import QuantityButton from '../shared/QuantityButton/QuantityButton';
+import { useCartContext } from '../../context/CartContext';
 
-const CartItem = ({ id, image, name, price, quantity }) => {
+const CartItem = ({ id, image, name, price, quantity, hasControls }) => {
   const { handleChangeQuantityInCart } = useCartContext();
   return (
     <div className={styles.cartItem}>
@@ -18,11 +18,15 @@ const CartItem = ({ id, image, name, price, quantity }) => {
           $ {new Intl.NumberFormat().format(price)}
         </span>
       </div>
-      <QuantityButton
-        quantity={quantity}
-        handleIncrement={() => handleChangeQuantityInCart('increment', id)}
-        handleDecrement={() => handleChangeQuantityInCart('decrement', id)}
-      />
+      {hasControls ? (
+        <QuantityButton
+          quantity={quantity}
+          handleIncrement={() => handleChangeQuantityInCart('increment', id)}
+          handleDecrement={() => handleChangeQuantityInCart('decrement', id)}
+        />
+      ) : (
+        <p className={styles.quantity}>x{quantity}</p>
+      )}
     </div>
   );
 };
@@ -30,6 +34,7 @@ const CartItem = ({ id, image, name, price, quantity }) => {
 export default CartItem;
 
 CartItem.propTypes = {
+  hasControls: PropTypes.bool.isRequired,
   image: PropTypes.shape({
     alt: PropTypes.string,
     src: PropTypes.string,
