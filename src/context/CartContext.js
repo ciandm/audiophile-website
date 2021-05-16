@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
-import removeUnwantedProductWords from '../../../util/removeUnwantedProductWords';
+import removeUnwantedProductWords from '../../util/removeUnwantedProductWords';
 
 /*
   id,

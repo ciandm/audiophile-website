@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../shared/Button/Button';
 import CartItem from './CartItem/CartItem';
 import styles from './CartModal.module.scss';
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 function CartModal({ cartItems, cartTotal }) {
   const { handleShowCart, handleRemoveAllItems } = useCartContext();

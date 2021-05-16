@@ -4,7 +4,7 @@ import Button from '../shared/Button/Button';
 import QuantityButton from '../shared/QuantityButton/QuantityButton';
 import styles from './AddToCartQuantity.module.scss';
 import useItemQuantity from '../../hooks/useItemQuantity';
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 function AddToCartQuantity({ restrictZero, itemDetails }) {
   const { handleDecrement, handleIncrement, quantity } = useItemQuantity(

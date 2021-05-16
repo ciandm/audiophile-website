@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
-import CartContext from '../../context/CartContext';
+import CartContext from '../../../context/CartContext';
 
 function PageTemplate({ children }) {
   return (

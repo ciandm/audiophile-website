@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ResponsiveImage from '../../shared/ResponsiveImage/ResponsiveImage';
 import styles from './CartItem.module.scss';
 import QuantityButton from '../../shared/QuantityButton/QuantityButton';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../../context/CartContext';
 
 const CartItem = ({ id, image, name, price, quantity }) => {
   const { handleChangeQuantityInCart } = useCartContext();

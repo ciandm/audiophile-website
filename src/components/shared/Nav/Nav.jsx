@@ -6,7 +6,7 @@ import styles from './Nav.module.scss';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import ProductShopCards from '../../ProductShopLinks/ProductShopCards/ProductShopCards';
 import CartModal from '../../CartModal/CartModal';
-import { useCartContext } from '../../context/CartContext';
+import { useCartContext } from '../../../context/CartContext';
 
 const NavMobile = ({
   cartOpen,
