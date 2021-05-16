@@ -33,7 +33,7 @@ function CartModal({ cartItems, cartTotal }) {
             ))}
           </div>
           <div className={styles.cartFooter}>
-            <CartRowLabel label="Total" value={cartTotal} />
+            <CartRowLabel label="Total" value={cartTotal.total} />
           </div>
           <Button variation="primary" type="link" href="/checkout">
             Checkout

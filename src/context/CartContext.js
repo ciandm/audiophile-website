@@ -18,7 +18,11 @@ const useCartContext = () => useContext(UserCartContext);
 function CartContext({ children }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState({
+    shipping: 50,
+    total: 0,
+    vat: 0,
+  });
   const [cartItemCount, setItemCount] = useState(0);
 
   useEffect(() => {
@@ -29,7 +33,18 @@ function CartContext({ children }) {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
     setCartTotal(
-      cartItems.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+      cartItems.reduce(
+        (acc, curr) => {
+          acc.total += curr.price * curr.quantity;
+          acc.vat = (acc.total * 0.2).toFixed(0);
+          return acc;
+        },
+        {
+          shipping: 50,
+          total: 0,
+          vat: 0,
+        }
+      )
     );
     setItemCount(cartItems.reduce((acc, current) => acc + current.quantity, 0));
   }, [cartItems]);
