@@ -5,6 +5,7 @@ import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
 import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import ProductFeatures from '../../src/components/ProductFeatures/ProductFeatures';
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
+import BestAudioGear from '../../src/components/shared/BestAudioGear/BestAudioGear';
 import SuggestedProducts from '../../src/components/SuggestedProducts/SuggestedProducts';
 
 function ProductPage({ product }) {
@@ -18,6 +19,7 @@ function ProductPage({ product }) {
       <Gallery name={product.name} images={product.gallery} />
       <SuggestedProducts products={product.others} />
       <ProductShopLinks />
+      <BestAudioGear />
     </>
   );
 }

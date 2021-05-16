@@ -1,0 +1,84 @@
+@import '../../../style/variables';
+@import '../../../style/typography';
+@import '../../../style/utilities';
+
+.section {
+  padding: 60px 24px;
+
+  @include for-tablet-up {
+    padding: 60px 40px;
+  }
+
+  @include for-desktop-up {
+    padding: 80px 0;
+  }
+}
+
+.container {
+  @include flex-column;
+  @include max-width;
+  margin: 0 auto;
+  width: 100%;
+
+  @include for-desktop-up {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.imageContainer {
+  border-radius: 8px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+
+  @include for-desktop-up {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    height: 588px;
+    margin-left: 128px;
+    order: 1;
+    width: 50%;
+  }
+}
+
+.content {
+  @include for-tablet-up {
+    flex-basis: 83.3333%;
+    margin: 0 auto;
+    max-width: 83.3333%;
+  }
+}
+
+.title {
+  @include HeadingTwo;
+  color: $black;
+  padding: 40px 0 32px;
+
+  @include for-tablet-up {
+    padding: 64px 0 32px;
+  }
+
+  @include for-desktop-up {
+    padding: 0 0 32px;
+  }
+}
+
+.highlight {
+  color: $rawSienna;
+}
+
+.title,
+.description {
+  text-align: center;
+
+  @include for-desktop-up {
+    text-align: left
+  }
+}
+
+.description {
+  @include Body;
+  color: $black;
+  opacity: 0.5;
+}
