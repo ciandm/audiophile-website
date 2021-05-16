@@ -6,7 +6,7 @@ import styles from './CartModal.module.scss';
 import { useCartContext } from '../context/CartContext';
 
 function CartModal({ cartItems, cartTotal }) {
-  const { handleShowCart } = useCartContext();
+  const { handleShowCart, handleRemoveAllItems } = useCartContext();
 
   const handleOverlayClick = e => {
     if (e.target !== e.currentTarget) return;
@@ -18,7 +18,11 @@ function CartModal({ cartItems, cartTotal }) {
         <div className={styles.modal}>
           <div className={styles.cartHeader}>
             <h6 className={styles.cartTitle}>Cart ({cartItems.length})</h6>
-            <button type="button" className={styles.cartRemoveAll}>
+            <button
+              type="button"
+              onClick={handleRemoveAllItems}
+              className={styles.cartRemoveAll}
+            >
               Remove all
             </button>
           </div>

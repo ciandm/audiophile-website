@@ -28,10 +28,6 @@ function CartContext({ children }) {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
-    if (cartItems.length === 0) {
-      setCartTotal(0);
-      return;
-    }
     setCartTotal(
       cartItems.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
     );

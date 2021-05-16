@@ -1,5 +1,6 @@
 import React from 'react';
 import Details from '../../src/components/Details/Details';
+import Gallery from '../../src/components/Gallery/Gallery';
 import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
 import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import ProductFeatures from '../../src/components/ProductFeatures/ProductFeatures';
@@ -13,6 +14,7 @@ function ProductPage({ product }) {
         <ProductDetail hasAddToCart {...product} />
         <ProductFeatures {...product} />
       </Details>
+      <Gallery name={product.name} images={product.gallery} />
       <ProductShopLinks />
     </>
   );
