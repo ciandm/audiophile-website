@@ -1,0 +1,33 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.summary {
+  @include grid-with-rows(max-content);
+  background: $white;
+  border-radius: 8px;
+  gap: 32px;
+  grid-auto-rows: max-content;
+  padding: 32px 24px;
+}
+
+.title {
+  @include HeadingSix;
+  color: $black;
+}
+
+.items {
+  @include grid-with-rows(max-content);
+  gap: 24px;
+}
+
+.costs {
+  @include grid-with-rows(max-content max-content);
+  gap: 24px;
+
+  & > .minor {
+    @include grid-with-rows(max-content);
+    gap: 8px;
+    grid-auto-rows: max-content;
+  }
+}

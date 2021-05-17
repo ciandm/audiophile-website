@@ -19,4 +19,8 @@
 .value {
   @include HeadingSix;
   color: $black;
+
+  &.highlighted {
+    color: $rawSienna;
+  }
 }
