@@ -1,0 +1,43 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.form {
+  background: $white;
+  padding: 24px;
+}
+
+.formTitle {
+  @include HeadingThree;
+  color: $black;
+  padding-bottom: 32px;
+}
+
+.fieldset {
+  @include flex-column;
+  border: none;
+
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.fieldTitle {
+  @include SubTitle;
+  color: $rawSienna;
+  padding-bottom: 16px;
+}
+
+.fields {
+  @include grid-with-columns(1fr);
+  gap: 24px;
+  grid-auto-rows: 1fr;
+
+  @include for-tablet-up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldFullwidth {
+  grid-column: 1 / -1;
+}
