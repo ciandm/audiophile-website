@@ -1,43 +1,13 @@
-@import '../../style/variables';
-@import '../../style/typography';
 @import '../../style/utilities';
 
-.form {
-  background: $white;
-  padding: 24px;
-}
+.container {
+  @include grid-with-rows(max-content max-content);
+  gap: 32px;
+  width: 100%;
 
-.formTitle {
-  @include HeadingThree;
-  color: $black;
-  padding-bottom: 32px;
-}
-
-.fieldset {
-  @include flex-column;
-  border: none;
-
-  & + & {
-    margin-top: 32px;
+  @include for-desktop-up {
+    align-items: start;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
   }
-}
-
-.fieldTitle {
-  @include SubTitle;
-  color: $rawSienna;
-  padding-bottom: 16px;
-}
-
-.fields {
-  @include grid-with-columns(1fr);
-  gap: 24px;
-  grid-auto-rows: 1fr;
-
-  @include for-tablet-up {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.fieldFullwidth {
-  grid-column: 1 / -1;
 }

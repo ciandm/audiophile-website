@@ -29,7 +29,7 @@ function CheckoutSummary() {
           />
         </div>
       </div>
-      <Button type="button" variation="primary">
+      <Button type="submit" variation="primary">
         Continue & Pay
       </Button>
     </div>

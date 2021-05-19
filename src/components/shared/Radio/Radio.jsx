@@ -2,29 +2,33 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Radio.module.scss';
 
-function Radio({ name, label }) {
+function Radio({ activeRadio, handleRadioSelect, name, label }) {
   const [checked, setChecked] = useState(false);
   return (
-    <label htmlFor={name} className={styles.radioGroup}>
+    <button
+      type="button"
+      className={styles.radioGroup}
+      onClick={() => setChecked(prev => !prev)}
+    >
       <input
         type="radio"
         className={styles.radio}
         name={name}
-        id={name}
         value={checked}
-        onChange={() => setChecked(prev => !prev)}
+        onChange={e => setChecked(e.target.value)}
       />
       <span
         className={`${styles.circle} ${checked ? `${styles.checked}` : ''}`}
       />
       <span className={styles.text}>{label}</span>
-    </label>
+    </button>
   );
 }
 
 export default Radio;
 
 Radio.propTypes = {
+  activeRadio: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };

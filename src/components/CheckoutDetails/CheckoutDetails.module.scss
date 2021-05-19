@@ -1,0 +1,55 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.details {
+  background: $white;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.title {
+  @include HeadingThree;
+  color: $black;
+  padding-bottom: 32px;
+}
+
+.fieldset {
+  @include flex-column;
+  border: none;
+
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.fieldTitle {
+  @include SubTitle;
+  color: $rawSienna;
+  padding-bottom: 16px;
+}
+
+.fields {
+  @include grid-with-columns(1fr);
+  gap: 24px;
+  grid-auto-rows: max-content;
+
+  @include for-tablet-up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.fieldsPayment {
+  @extend .fields;
+  gap: 16px;
+}
+
+.fieldFullwidth {
+  grid-column: 1 / -1;
+}
+
+.radioGroup {
+  @include grid-with-columns(1fr);
+  gap: 16px;
+  padding-bottom: 16px;
+}

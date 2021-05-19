@@ -20,7 +20,7 @@ function CartRowLabel({ label, value, highlightPrice }) {
 export default CartRowLabel;
 
 CartRowLabel.propTypes = {
-  highlightPrice: PropTypes.bool.isRequired,
+  highlightPrice: PropTypes.bool,
   label: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
 };

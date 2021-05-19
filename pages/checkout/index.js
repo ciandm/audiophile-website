@@ -1,17 +1,17 @@
 import CheckoutContainer from '../../src/components/CheckoutContainer/CheckoutContainer';
 import CheckoutSummary from '../../src/components/CheckoutSummary/CheckoutSummary';
-import CheckoutTiles from '../../src/components/CheckoutTiles/CheckoutTiles';
-import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
 import CheckoutForm from '../../src/components/CheckoutForm/CheckoutForm';
+import GoBackButton from '../../src/components/GoBackButton/GoBackButton';
+import CheckoutDetails from '../../src/components/CheckoutDetails/CheckoutDetails';
 
 function Checkout() {
   return (
     <CheckoutContainer>
       <GoBackButton />
-      <CheckoutTiles>
-        <CheckoutForm />
+      <CheckoutForm>
+        <CheckoutDetails />
         <CheckoutSummary />
-      </CheckoutTiles>
+      </CheckoutForm>
     </CheckoutContainer>
   );
 }
