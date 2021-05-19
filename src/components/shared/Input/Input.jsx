@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.scss';
 
-function Input({ name, label, type, placeholder, error }) {
-  const [inputValue, setInputValue] = useState('');
-  return (
+const Input = React.forwardRef(
+  ({ name, label, type, placeholder, error, ...restProps }, ref) => (
     <div className={styles.inputContainer}>
       <div className={styles.inputHeader}>
         <label
@@ -13,18 +12,20 @@ function Input({ name, label, type, placeholder, error }) {
         >
           {label}
         </label>
-        {error && <span className={styles.error}>{error}</span>}
+        {error && <span className={styles.error}>{error.message}</span>}
       </div>
       <input
+        name={name}
         type={type || 'text'}
+        id={name}
         className={`${styles.input} ${error ? `${styles.error}` : ''}`}
-        onChange={e => setInputValue(e.target.value)}
         placeholder={placeholder}
-        value={inputValue}
+        ref={ref}
+        {...restProps}
       />
     </div>
-  );
-}
+  )
+);
 
 export default Input;
 

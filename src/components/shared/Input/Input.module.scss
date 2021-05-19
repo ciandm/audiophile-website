@@ -8,6 +8,7 @@
 
 .inputHeader {
   @include flex-row;
+  justify-content: space-between;
   padding-bottom: 8px;
 }
 

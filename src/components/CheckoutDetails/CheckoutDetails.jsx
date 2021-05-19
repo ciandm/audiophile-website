@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import styles from './CheckoutDetails.module.scss';
 import Input from '../shared/Input/Input';
 import Radio from '../shared/Radio/Radio';
@@ -8,7 +8,8 @@ function CheckoutForm() {
   const {
     register,
     formState: { errors },
-  } = useForm();
+  } = useFormContext();
+
   return (
     <div className={styles.details}>
       <h1 className={styles.title}>Checkout</h1>
@@ -16,18 +17,27 @@ function CheckoutForm() {
         <legend className={styles.fieldTitle}>Billing details</legend>
         <div className={styles.fields}>
           <Input
-            {...register('Name', { required: true })}
+            {...register('name', { required: 'Required' })}
             label="Name"
+            error={errors.name}
             placeholder="Alexei Ward"
           />
           <Input
-            name="email"
+            {...register('email', {
+              pattern: {
+                message: 'Invalid email address',
+                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              },
+              required: 'Required',
+            })}
             label="Email address"
+            error={errors.email}
             placeholder="alexei@mail.com"
           />
           <Input
-            name="phone"
+            {...register('phone', { required: 'Required' })}
             label="Phone Number"
+            error={errors.phone}
             placeholder="+1 202-555-0136"
           />
         </div>
@@ -37,14 +47,30 @@ function CheckoutForm() {
         <div className={styles.fields}>
           <div className={styles.fieldFullwidth}>
             <Input
-              name="address"
+              {...register('address', { required: 'Required' })}
               label="Your Address"
+              error={errors.address}
               placeholder="1137 Williams Avenue"
             />
           </div>
-          <Input name="zip" label="ZIP Code" placeholder="10001" />
-          <Input name="city" label="City" placeholder="New York" />
-          <Input name="country" label="Country" placeholder="United States" />
+          <Input
+            {...register('zip', { required: 'Required' })}
+            label="ZIP Code"
+            error={errors.zip}
+            placeholder="10001"
+          />
+          <Input
+            {...register('city', { required: 'Required' })}
+            label="City"
+            error={errors.city}
+            placeholder="New York"
+          />
+          <Input
+            {...register('country', { required: 'Required' })}
+            label="Country"
+            error={errors.country}
+            placeholder="United States"
+          />
         </div>
       </fieldset>
       <fieldset className={styles.fieldset}>
