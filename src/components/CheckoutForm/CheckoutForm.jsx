@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CheckoutForm.module.scss';
 import Input from '../shared/Input/Input';
+import Radio from '../shared/Radio/Radio';
 
 function CheckoutForm() {
   return (
@@ -37,6 +38,7 @@ function CheckoutForm() {
           <Input name="country" label="Country" placeholder="United States" />
         </div>
       </fieldset>
+      <Radio name="Designer" label="Graphic" />
     </form>
   );
 }

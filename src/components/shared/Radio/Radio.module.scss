@@ -1,0 +1,37 @@
+@import '../../../style/variables';
+@import '../../../style/typography';
+@import '../../../style/utilities';
+
+.radioGroup {
+  align-items: center;
+  border: 1px solid hsl(0, 0%, 81%);
+  border-radius: 8px;
+  display: flex;
+  padding: 16px 24px;
+}
+
+.radio {
+  display: none;
+  visibility: hidden;
+}
+
+.circle {
+  align-items: center;
+  border: 1px solid hsl(0, 0%, 81%);
+  border-radius: 10px;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  margin-right: 16px;
+  position: relative;
+  width: 20px;
+
+  &.checked::before {
+    background: $rawSienna;
+    border-radius: 5px;
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+  }
+}
