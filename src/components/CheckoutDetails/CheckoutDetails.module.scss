@@ -6,6 +6,10 @@
   background: $white;
   border-radius: 8px;
   padding: 24px;
+
+  @include for-desktop-up {
+    padding: 48px;
+  }
 }
 
 .title {
@@ -52,4 +56,23 @@
   @include grid-with-columns(1fr);
   gap: 16px;
   padding-bottom: 16px;
+}
+
+.cashOnDelivery {
+  @include grid-with-columns(max-content 1fr);
+  align-items: center;
+  gap: 32px;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.cashIcon {
+  height: 48px;
+  width: 48px;
+}
+
+.cashDescription {
+  @include Body;
+  color: $black;
+  opacity: 0.5;
 }

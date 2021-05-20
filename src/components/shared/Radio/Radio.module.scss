@@ -14,11 +14,28 @@
     border-color: $rawSienna;
     cursor: pointer;
   }
+
+  &.active {
+    border-color: $rawSienna;
+  }
+
+  &.error {
+    border: 2px solid $error;
+  }
 }
 
 .radio {
   display: none;
   visibility: hidden;
+
+  &:checked + .circle::before {
+    background: $rawSienna;
+    border-radius: 5px;
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+  }
 }
 
 .circle {
@@ -31,13 +48,4 @@
   margin-right: 16px;
   position: relative;
   width: 20px;
-
-  &.checked::before {
-    background: $rawSienna;
-    border-radius: 5px;
-    content: '';
-    display: block;
-    height: 10px;
-    width: 10px;
-  }
 }

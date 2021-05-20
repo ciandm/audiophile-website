@@ -7,8 +7,12 @@ import Radio from '../shared/Radio/Radio';
 function CheckoutForm() {
   const {
     register,
+    watch,
     formState: { errors },
   } = useFormContext();
+
+  // watch input of e-money fields to display extra inputs or not
+  const watchPaymentMethod = watch('paymentMethod', null);
 
   return (
     <div className={styles.details}>
@@ -78,15 +82,55 @@ function CheckoutForm() {
         <div className={styles.fieldsPayment}>
           <span className={styles.fauxLabel}>Payment Method</span>
           <div className={styles.radioGroup}>
-            <Radio name="payment" label="e-Money" />
-            <Radio name="payment" label="Cash on Delivery" />
+            <Radio
+              activeRadio={watchPaymentMethod === 'e-money'}
+              error={errors.paymentMethod}
+              name="payment"
+              label="e-Money"
+              {...register('paymentMethod', { required: 'Required' })}
+              value="e-money"
+            />
+            <Radio
+              activeRadio={watchPaymentMethod === 'cash on delivery'}
+              error={errors.paymentMethod}
+              name="payment"
+              label="Cash on Delivery"
+              {...register('paymentMethod', { required: 'Required' })}
+              value="cash on delivery"
+            />
           </div>
-          <Input
-            name="e-money-number"
-            label="e-Money Number"
-            placeholder="238521993"
-          />
-          <Input name="e-money-pin" label="e-Money PIN" placeholder="6891" />
+          {watchPaymentMethod === 'e-money' ? (
+            <>
+              <Input
+                {...register('eMoneyNumber', { required: 'Required' })}
+                error={errors.eMoneyNumber}
+                name="e-money-number"
+                label="e-Money Number"
+                placeholder="238521993"
+              />
+              <Input
+                {...register('eMoneyPIN', { required: 'Required' })}
+                error={errors.eMoneyPIN}
+                name="e-money-pin"
+                label="e-Money PIN"
+                placeholder="6891"
+              />
+            </>
+          ) : (
+            <div className={styles.cashOnDelivery}>
+              <img
+                src="/assets/cart/icon-cash-on-delivery.svg"
+                alt="Cash on delivery icon"
+                className={styles.cashIcon}
+              />
+              <p className={styles.cashDescription}>
+                The ‘Cash on Delivery’ option enables you to pay in cash when
+                our delivery courier arrives at your residence. Just make sure
+                your address is correct so that your order will not be
+                cancelled.
+              </p>
+            </div>
+          )}
         </div>
       </fieldset>
     </div>

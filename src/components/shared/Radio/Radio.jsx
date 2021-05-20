@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Radio.module.scss';
 
-function Radio({ activeRadio, handleRadioSelect, name, label }) {
-  const [checked, setChecked] = useState(false);
-  return (
-    <button
+const Radio = React.forwardRef(
+  ({ activeRadio, name, label, error, ...restProps }, ref) => (
+    <label
       type="button"
-      className={styles.radioGroup}
-      onClick={() => setChecked(prev => !prev)}
+      className={`${styles.radioGroup} 
+      ${activeRadio ? `${styles.active}` : ''} 
+      ${error ? `${styles.error}` : ''}`}
     >
       <input
         type="radio"
         className={styles.radio}
         name={name}
-        value={checked}
-        onChange={e => setChecked(e.target.value)}
+        ref={ref}
+        {...restProps}
       />
-      <span
-        className={`${styles.circle} ${checked ? `${styles.checked}` : ''}`}
-      />
+      <span className={styles.circle} />
       <span className={styles.text}>{label}</span>
-    </button>
-  );
-}
+    </label>
+  )
+);
 
 export default Radio;
 
