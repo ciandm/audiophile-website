@@ -49,9 +49,14 @@ function CartContext({ children }) {
     setItemCount(cartItems.reduce((acc, current) => acc + current.quantity, 0));
   }, [cartItems]);
 
-  const handleShowCart = () => {
-    setCartOpen(prevState => !prevState);
-    document.body.classList.toggle('noScroll');
+  const handleShowCart = action => {
+    if (action === 'show') {
+      setCartOpen(true);
+      document.body.classList.add('noScroll');
+    } else if (action === 'hide') {
+      setCartOpen(false);
+      document.body.classList.remove('noScroll');
+    }
   };
 
   const handleAddToCart = (itemDetails, quantity) => {

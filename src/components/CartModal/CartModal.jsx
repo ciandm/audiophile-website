@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import Button from '../shared/Button/Button';
 import CartItem from '../CartItem/CartItem';
 import styles from './CartModal.module.scss';
@@ -8,10 +9,22 @@ import CartRowLabel from '../shared/CartRowLabel/CartRowLabel';
 
 function CartModal({ cartItems, cartTotal }) {
   const { handleShowCart, handleRemoveAllItems } = useCartContext();
+  const router = useRouter();
+
+  // whenever route changes, hide the modal.
+  useEffect(() => {
+    const handleRouterChange = () => {
+      handleShowCart('hide');
+    };
+    router.events.on('routeChangeComplete', handleRouterChange);
+
+    return () => router.events.off('routeChangeComplete', handleRouterChange);
+    // eslint-disable-next-line
+  }, []);
 
   const handleOverlayClick = e => {
     if (e.target !== e.currentTarget) return;
-    handleShowCart();
+    handleShowCart('hide');
   };
   return (
     <div className={styles.overlay} onClick={handleOverlayClick}>

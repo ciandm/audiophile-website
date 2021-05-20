@@ -83,40 +83,38 @@ function CheckoutForm() {
           <span className={styles.fauxLabel}>Payment Method</span>
           <div className={styles.radioGroup}>
             <Radio
-              activeRadio={watchPaymentMethod === 'e-money'}
+              activeRadio={watchPaymentMethod === 'eMoney'}
               error={errors.paymentMethod}
               name="payment"
               label="e-Money"
               {...register('paymentMethod', { required: 'Required' })}
-              value="e-money"
+              value="eMoney"
             />
             <Radio
-              activeRadio={watchPaymentMethod === 'cash on delivery'}
+              activeRadio={watchPaymentMethod === 'cashOnDelivery'}
               error={errors.paymentMethod}
               name="payment"
               label="Cash on Delivery"
               {...register('paymentMethod', { required: 'Required' })}
-              value="cash on delivery"
+              value="cashOnDelivery"
             />
           </div>
-          {watchPaymentMethod === 'e-money' ? (
+          {watchPaymentMethod === 'eMoney' ? (
             <>
               <Input
                 {...register('eMoneyNumber', { required: 'Required' })}
                 error={errors.eMoneyNumber}
-                name="e-money-number"
                 label="e-Money Number"
                 placeholder="238521993"
               />
               <Input
                 {...register('eMoneyPIN', { required: 'Required' })}
                 error={errors.eMoneyPIN}
-                name="e-money-pin"
                 label="e-Money PIN"
                 placeholder="6891"
               />
             </>
-          ) : (
+          ) : watchPaymentMethod === 'cashOnDelivery' ? (
             <div className={styles.cashOnDelivery}>
               <img
                 src="/assets/cart/icon-cash-on-delivery.svg"
@@ -130,7 +128,7 @@ function CheckoutForm() {
                 cancelled.
               </p>
             </div>
-          )}
+          ) : null}
         </div>
       </fieldset>
     </div>

@@ -46,7 +46,7 @@ const NavMobile = ({
             <button
               className={`${styles.nav_button} ${styles.cart}`}
               type="button"
-              onClick={handleShowCart}
+              onClick={() => handleShowCart('show')}
             >
               &nbsp;
             </button>
@@ -132,7 +132,7 @@ const NavDesktop = ({
         <button
           className={`${styles.nav_button} ${styles.cart}`}
           type="button"
-          onClick={handleShowCart}
+          onClick={() => handleShowCart('show')}
         >
           &nbsp;
         </button>

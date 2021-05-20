@@ -37,7 +37,7 @@
   line-height: 36px;
   text-transform: uppercase;
 
-  @include for-desktop-up {
+  @include for-tablet-up {
     font-size: 32px;
   }
 }
