@@ -1,0 +1,53 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.hero {
+  background: $rawSienna;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 56px 24px;
+  width: 100%;
+}
+
+.heroImageContainer {
+  @include flex-column;
+  @include flex-center-contents;
+  height: 208px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    background-image: url('../../../public/assets/home/desktop/pattern-circles.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    z-index: -1;
+  }
+}
+
+.heroImage {
+
+}
+
+.heroContent {
+  @include grid-with-rows(repeat(3, max-content));
+  color: $white;
+  gap: 24px;
+  padding-top: 32px;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+}
+
+.heroTitle {
+  @include HeadingOne;
+}
+
+.heroDescription {
+  opacity: .75;
+}

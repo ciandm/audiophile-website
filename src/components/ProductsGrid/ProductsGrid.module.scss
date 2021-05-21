@@ -1,0 +1,9 @@
+@import '../../style/variables';
+@import '../../style/utilities';
+
+.grid {
+  @include grid-with-rows(max-content max-content max-content);
+  background: $white;
+  gap: 24px;
+  padding: 60px 24px;
+}

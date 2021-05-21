@@ -41,6 +41,25 @@ const Secondary = ({ children, isLink, type, ...restProps }) => {
   );
 };
 
+const Tertiary = ({ children, isLink, type, ...restProps }) => {
+  if (type === 'link') {
+    return (
+      <Link {...restProps}>
+        <a className={styles.tertiary}>{children}</a>
+      </Link>
+    );
+  }
+  return (
+    <button
+      type={type === 'button' ? 'button' : 'submit'}
+      {...restProps}
+      className={styles.tertiary}
+    >
+      {children}
+    </button>
+  );
+};
+
 const Ghost = ({ children, type, activeLink, ...restProps }) => {
   if (type === 'link') {
     return (
@@ -72,6 +91,13 @@ const Button = ({ variation, children, type, activeLink, ...restProps }) => {
       </Secondary>
     );
   }
+  if (variation === 'tertiary') {
+    return (
+      <Tertiary type={type} {...restProps}>
+        {children}
+      </Tertiary>
+    );
+  }
   if (variation === 'ghost') {
     return (
       <Ghost type={type} activeLink={activeLink} {...restProps}>
@@ -90,5 +116,6 @@ export default Button;
 
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'link']).isRequired,
-  variation: PropTypes.oneOf(['primary', 'secondary', 'ghost']).isRequired,
+  variation: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'ghost'])
+    .isRequired,
 };

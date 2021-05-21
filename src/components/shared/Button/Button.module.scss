@@ -33,6 +33,17 @@
   }
 }
 
+.tertiary {
+  @extend .button;
+  background: $black;
+  border-color: none;
+  color: $white;
+
+  &:hover {
+    background: #4c4c4c;
+  }
+}
+
 .ghost {
   @include flex-row;
   @extend .button;
