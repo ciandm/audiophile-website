@@ -51,7 +51,10 @@ function CheckoutModal() {
           <div className={styles.purchasedFooter}>
             <p className={styles.footerSubtitle}>Grand total</p>
             <h5 className={styles.footerTotal}>
-              $ {new Intl.NumberFormat().format(cartTotal.total)}
+              ${' '}
+              {new Intl.NumberFormat().format(
+                cartTotal.total + cartTotal.shipping
+              )}
             </h5>
           </div>
         </div>

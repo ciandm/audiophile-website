@@ -48,9 +48,11 @@ function CartModal({ cartItems, cartTotal }) {
           <div className={styles.cartFooter}>
             <CartRowLabel label="Total" value={cartTotal.total} />
           </div>
-          <Button variation="primary" type="link" href="/checkout">
-            Checkout
-          </Button>
+          {cartItems.length > 0 ? (
+            <Button variation="primary" type="link" href="/checkout">
+              Checkout
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>

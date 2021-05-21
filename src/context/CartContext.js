@@ -26,8 +26,9 @@ function CartContext({ children }) {
   const [cartItemCount, setItemCount] = useState(0);
 
   useEffect(() => {
+    // Get saved cart from local storage, and if none initialize with an empty array
     const savedCart = JSON.parse(localStorage.getItem('cart'));
-    setCartItems(savedCart);
+    setCartItems(savedCart || []);
   }, []);
 
   useEffect(() => {
@@ -108,6 +109,10 @@ function CartContext({ children }) {
     setCartItems([]);
   };
 
+  const handleRemoveFromLocalStorage = () => {
+    localStorage.setItem('cart', null);
+  };
+
   return (
     <UserCartContext.Provider
       value={{
@@ -118,6 +123,7 @@ function CartContext({ children }) {
         handleAddToCart,
         handleChangeQuantityInCart,
         handleRemoveAllItems,
+        handleRemoveFromLocalStorage,
         handleShowCart,
       }}
     >
