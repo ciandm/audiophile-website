@@ -1,0 +1,167 @@
+@import '../../style/variables';
+@import '../../style/typography';
+@import '../../style/utilities';
+
+.overlay {
+  @include flex-column;
+  @include flex-center-contents;
+  background: hsla(0, 0%, 0%, 0.4);
+  bottom: 0;
+  left: 0;
+  padding: 0 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5000;
+}
+
+.modal {
+  @include grid-with-rows(max-content);
+  background: $white;
+  border-radius: 8px;
+  gap: 24px;
+  max-width: 540px;
+  padding: 32px;
+  width: 100%;
+
+  @include for-tablet-up {
+    gap: 32px;
+    padding: 48px;
+  }
+}
+
+.modalHeader {
+  @include grid-with-rows(max-content);
+  gap: 16px;
+
+  @include for-tablet-up {
+    gap: 24px;
+  }
+}
+
+.modalTitle {
+  @include HeadingThree;
+  padding-top: 8px;
+}
+
+.modalDescription {
+  @include Body;
+  color: $black;
+  opacity: 0.5;
+}
+
+.purchased {
+  @include flex-column;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  
+  @include for-tablet-up {
+    @include grid-with-columns(1fr max-content);
+  }
+}
+
+.purchasedItems {
+  background: $seaShell;
+  padding: 24px;
+}
+
+.purchasedMain {
+  @include grid-with-columns(50px 1fr max-content);
+  align-items: center;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.08);
+  gap: 16px;
+  padding-bottom: 12px;
+}
+
+.mainImageContainer {
+  @include flex-row;
+  @include flex-center-contents;
+  height: 50px;
+  width: 50px;
+}
+
+.mainImage {
+  height: 100%;
+  width: 100%;
+}
+
+.mainItem {
+  @include flex-column;
+  width: 100%;
+}
+
+.mainTitle,
+.mainQuantity,
+.footerSubtitle {
+  color: $black;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 25px;
+}
+
+.mainTitle,
+.footerSubtitle {
+  text-transform: uppercase;
+}
+
+.mainPrice {
+  color: $black;
+  font-size: 14px;
+  line-height: 25px;
+  opacity: 0.4;
+}
+
+.mainPrice,
+.mainQuantity {
+  font-weight: 700;
+}
+
+.mainQuantity {
+  align-self: start;
+  opacity: 0.5;
+  text-transform: lowercase;
+}
+
+.purchasedOthers {
+  color: $black;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.5;
+  padding-top: 12px;
+  text-align: center;
+}
+
+.purchasedFooter {
+  background: $black;
+  padding: 20px 24px;
+
+  @include for-tablet-up {
+    @include flex-column;
+    justify-content: center;
+    padding: 0 72px 0 24px;
+  }
+}
+
+.footerSubtitle {
+  opacity: 0.5;
+  padding-bottom: 8px;
+}
+
+.footerSubtitle,
+.footerTotal {
+  color: $white;
+}
+
+.footerTotal {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.modalFooter {
+  @include flex-column;
+
+  @include for-tablet-up {
+    padding-top: 16px;
+  }
+}
