@@ -15,8 +15,6 @@
     @include grid-with-columns(repeat(12, 1fr));
     align-items: center;
     gap: 30px;
-    grid-column: 1 / -1;
-    height: 560px;
     padding: 0;
   }
 }

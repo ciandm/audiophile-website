@@ -1,0 +1,51 @@
+@import '../../style/variables';
+@import '../../style/utilities';
+@import '../../style/typography';
+
+.container {
+  @include grid-with-rows(200px 200px);
+  @include max-width;
+  gap: 24px;
+  margin: 0 auto;
+  width: 100%;
+
+  @include for-tablet-up {
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 320px 320px;
+  }
+}
+
+.image {
+  background-image: url('../../../public/assets/home/mobile/image-earphones-yx1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include for-tablet-up {
+    background-image: url('../../../public/assets/home/tablet/image-earphones-yx1.jpg');
+  }
+
+  @include for-desktop-up {
+    background-image: url('../../../public/assets/home/desktop/image-earphones-yx1.jpg');
+  }
+}
+
+.image,
+.description {
+  border-radius: 8px;
+}
+
+.description {
+  @include flex-row;
+  align-items: center;
+  background: $seaShell;
+  padding-left: 24px;
+
+  @include for-tablet-up {
+    padding-left: 40px;
+  }
+
+  @include for-desktop-up {
+    padding-left: 96px;
+  }
+}
