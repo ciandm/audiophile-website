@@ -3,11 +3,22 @@
 @import '../../style/utilities';
 
 .hero {
+  @include max-width;
   background: $rawSienna;
   border-radius: 8px;
+  margin: 0 auto;
   overflow: hidden;
   padding: 56px 24px;
   width: 100%;
+
+  @include for-desktop-up {
+    @include grid-with-columns(repeat(12, 1fr));
+    align-items: center;
+    gap: 30px;
+    grid-column: 1 / -1;
+    height: 560px;
+    padding: 0;
+  }
 }
 
 .heroImageContainer {
@@ -27,6 +38,19 @@
     position: absolute;
     width: 560px;
     z-index: -1;
+
+    @include for-desktop-up {
+      height: 944px;
+      transform: translateY(48px);
+      width: 944px;
+    }
+  }
+
+  @include for-desktop-up {
+    grid-column: 2 / 7;
+    height: 500px;
+    transform: translateY(48px);
+    width: 100%;
   }
 }
 
@@ -42,6 +66,17 @@
   position: relative;
   text-align: center;
   z-index: 10;
+
+  @include for-tablet-up {
+    padding-top: 64px;
+  }
+
+  @include for-desktop-up {
+    grid-column: 8 / 12;
+    justify-items: start;
+    padding-top: 0;
+    text-align: left
+  }
 }
 
 .heroTitle {
@@ -50,4 +85,8 @@
 
 .heroDescription {
   opacity: .75;
+
+  @include for-tablet-up {
+    padding-bottom: 16px;
+  }
 }

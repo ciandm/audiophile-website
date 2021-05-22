@@ -6,4 +6,14 @@
   background: $white;
   gap: 24px;
   padding: 60px 24px;
+
+  @include for-tablet-up {
+    gap: 32px;
+    padding: 36px 40px;
+  }
+
+  @include for-desktop-up {
+    gap: 48px;
+    grid-template-columns: 1fr 1fr;
+  }
 }
