@@ -1,0 +1,15 @@
+@import '../../../style/variables';
+@import '../../../style/utilities';
+@import '../../../style/typography';
+
+.container {
+  @include grid-with-rows(max-content max-content);
+  gap: 32px;
+  justify-items: start;
+  width: 100%;
+}
+
+.title {
+  @include HeadingThree;
+  color: $black;
+}

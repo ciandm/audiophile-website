@@ -15,5 +15,6 @@
   @include for-desktop-up {
     gap: 48px;
     grid-template-columns: 1fr 1fr;
+    padding: 80px 0;
   }
 }

@@ -54,14 +54,11 @@
   }
 }
 
-.heroImage {
-
-}
-
 .heroContent {
   @include grid-with-rows(repeat(3, max-content));
   color: $white;
   gap: 24px;
+  justify-items: center;
   padding-top: 32px;
   position: relative;
   text-align: center;

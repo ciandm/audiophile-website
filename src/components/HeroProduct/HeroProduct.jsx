@@ -19,7 +19,7 @@ function HeroProduct() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <Button as="link" variation="tertiary" href="/">
+        <Button type="link" variation="tertiary" href="/products/zx9-speaker">
           See product
         </Button>
       </div>

@@ -1,0 +1,26 @@
+@import '../../style/variables';
+@import '../../style/utilities';
+@import '../../style/typography';
+
+.container {
+  @include max-width;
+  background-image: url('../../../public/assets/home/mobile/image-speaker-zx7.jpg');
+  background-position: 80% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 104px 24px;
+  width: 100%;
+
+  @include for-tablet-up {
+    background-image: url('../../../public/assets/home/tablet/image-speaker-zx7.jpg');
+    padding: 104px 64px;
+  }
+
+  @include for-desktop-up {
+    background-image: url('../../../public/assets/home/desktop/image-speaker-zx7.jpg');
+    grid-column: 1 / -1;
+  }
+}

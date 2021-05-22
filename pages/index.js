@@ -3,6 +3,7 @@ import ProductShopLinks from '../src/components/ProductShopLinks/ProductShopCard
 import BestAudioGear from '../src/components/shared/BestAudioGear/BestAudioGear';
 import ProductsGrid from '../src/components/ProductsGrid/ProductsGrid';
 import HeroProduct from '../src/components/HeroProduct/HeroProduct';
+import SpeakerProductHighlight from '../src/components/SpeakerProductHighlight/SpeakerProductHighlight';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <ProductShopLinks />
       <ProductsGrid>
         <HeroProduct />
+        <SpeakerProductHighlight />
       </ProductsGrid>
       <BestAudioGear />
     </>
