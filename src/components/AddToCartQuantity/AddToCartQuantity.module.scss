@@ -5,4 +5,8 @@
   flex-wrap: wrap;
   gap: 16px;
   width: 100%;
+
+  & button {
+    min-width: 165px;
+  }
 }
