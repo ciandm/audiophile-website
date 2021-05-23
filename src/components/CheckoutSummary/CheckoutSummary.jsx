@@ -12,7 +12,7 @@ function CheckoutSummary() {
       <h6 className={styles.title}>Summary</h6>
       <div className={styles.items}>
         {cartItems.map(i => (
-          <CartItem key={i._id} {...i} />
+          <CartItem key={i.id} {...i} hasControls={false} />
         ))}
       </div>
       <div className={styles.costs}>

@@ -9,6 +9,7 @@ import CartModal from '../../CartModal/CartModal';
 import { useCartContext } from '../../../context/CartContext';
 
 const NavMobile = ({
+  activePath,
   cartOpen,
   cartItems,
   cartItemCount,
@@ -21,11 +22,27 @@ const NavMobile = ({
   const handleMenuToggle = () => {
     setMenuOpen(prevState => !prevState);
   };
+  const handleKeyDown = e => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      setMenuOpen(false);
+    }
+  };
 
   return (
-    <nav className={styles.nav}>
+    <nav
+      className={`${styles.nav} ${
+        activePath === '/' ? `${styles.navHome}` : ''
+      }`}
+    >
       {menuOpen ? (
-        <div className={styles.overlay} onClick={handleMenuToggle} />
+        <div
+          aria-label="Menu overlay"
+          className={styles.overlay}
+          onKeyDown={handleKeyDown}
+          onClick={handleMenuToggle}
+          role="button"
+          tabIndex={0}
+        />
       ) : null}
       <div className={styles.header}>
         <div className={styles.contents}>
@@ -74,7 +91,9 @@ const NavDesktop = ({
   cartTotal,
   handleShowCart,
 }) => (
-  <nav className={styles.nav}>
+  <nav
+    className={`${styles.nav} ${activePath === '/' ? `${styles.navHome}` : ''}`}
+  >
     <div className={styles.contents}>
       <div className={styles.logo}>
         <ResponsiveImage

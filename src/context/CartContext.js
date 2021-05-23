@@ -37,7 +37,7 @@ function CartContext({ children }) {
       cartItems.reduce(
         (acc, curr) => {
           acc.total += curr.price * curr.quantity;
-          acc.vat = (acc.total * 0.2).toFixed(0);
+          acc.vat = Number((acc.total * 0.2).toFixed(0));
           return acc;
         },
         {

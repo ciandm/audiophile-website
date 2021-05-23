@@ -26,7 +26,7 @@ const Radio = React.forwardRef(
 export default Radio;
 
 Radio.propTypes = {
-  activeRadio: PropTypes.string.isRequired,
+  activeRadio: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };

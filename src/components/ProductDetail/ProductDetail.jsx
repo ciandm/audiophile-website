@@ -69,8 +69,7 @@ export default ProductDetail;
 ProductDetail.propTypes = {
   description: PropTypes.string.isRequired,
   hasAddToCart: PropTypes.bool,
-  image: PropTypes.oneOfType([PropTypes.array]),
-  itemId: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object]),
   name: PropTypes.string.isRequired,
   new: PropTypes.bool,
   slug: PropTypes.string,

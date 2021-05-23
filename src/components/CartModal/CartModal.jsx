@@ -26,8 +26,20 @@ function CartModal({ cartItems, cartTotal }) {
     if (e.target !== e.currentTarget) return;
     handleShowCart('hide');
   };
+  const handleKeyPress = e => {
+    e.preventDefault();
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      handleShowCart('hide');
+    }
+  };
   return (
-    <div className={styles.overlay} onClick={handleOverlayClick}>
+    <div
+      className={styles.overlay}
+      onClick={handleOverlayClick}
+      onKeyDown={e => handleKeyPress(e)}
+      role="button"
+      tabIndex={0}
+    >
       <div className={styles.modalContainer}>
         <div className={styles.modal}>
           <div className={styles.cartHeader}>
@@ -63,5 +75,9 @@ export default CartModal;
 
 CartModal.propTypes = {
   cartItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-  cartTotal: PropTypes.number.isRequired,
+  cartTotal: PropTypes.shape({
+    shipping: PropTypes.number,
+    total: PropTypes.number,
+    vat: PropTypes.number,
+  }).isRequired,
 };

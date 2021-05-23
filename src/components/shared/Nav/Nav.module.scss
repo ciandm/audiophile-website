@@ -5,10 +5,15 @@
 .nav {
   @include flex-column;
   @include flex-center-contents;
+  background: $black;
   height: 90px;
   position: relative;
   width: 100%;
   z-index: 500;
+}
+
+.navHome {
+  background: transparent;
 }
 
 .overlay {

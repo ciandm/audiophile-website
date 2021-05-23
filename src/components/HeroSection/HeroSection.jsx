@@ -13,7 +13,11 @@ function HeroSection() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button type="link" href="/products/xx99-mark-two-headphones">
+          <Button
+            type="link"
+            variation="primary"
+            href="/products/xx99-mark-two-headphones"
+          >
             See product
           </Button>
         </div>

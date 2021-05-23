@@ -4,6 +4,7 @@
 
 .footer {
   background: $codGray;
+  margin-top: 60px;
   padding: 52px 24px 38px;
 
   @include for-tablet-up {
@@ -11,6 +12,7 @@
   }
 
   @include for-desktop-up {
+    margin-top: 80px;
     padding: 72px 0 48px;
   }
 }
