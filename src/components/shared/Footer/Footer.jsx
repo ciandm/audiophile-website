@@ -15,7 +15,7 @@ function Footer() {
             alt="Audiophile logo"
             className={styles.logo}
           />
-          <ul className={styles.links}>
+          <div className={styles.links}>
             <Link href="/">
               <a
                 className={`${styles.link} ${
@@ -54,7 +54,7 @@ function Footer() {
                 Earphones
               </a>
             </Link>
-          </ul>
+          </div>
         </div>
         <div className={styles.info}>
           <p className={styles.bio}>

@@ -64,6 +64,7 @@ const NavMobile = ({
               className={`${styles.nav_button} ${styles.cart}`}
               type="button"
               onClick={() => handleShowCart('show')}
+              aria-label="Toggle menu"
             >
               &nbsp;
             </button>
