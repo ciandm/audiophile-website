@@ -7,6 +7,7 @@ import ProductFeatures from '../../src/components/ProductFeatures/ProductFeature
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
 import BestAudioGear from '../../src/components/shared/BestAudioGear/BestAudioGear';
 import SuggestedProducts from '../../src/components/SuggestedProducts/SuggestedProducts';
+import { connectToDatabase } from '../../util/mongodb';
 
 function ProductPage({ product }) {
   return (
@@ -25,29 +26,23 @@ function ProductPage({ product }) {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `http://localhost:3000/api/products/${params.slug}`,
-    {
-      method: 'GET',
-    }
-  );
-  const result = await data.json();
-  // place items with a new flag towards the top
+  const { db } = await connectToDatabase();
+  const product = await db
+    .collection('products')
+    .findOne({ slug: params.slug });
 
   return {
     props: {
-      product: result.data,
+      product: JSON.parse(JSON.stringify(product)),
     },
   };
 }
 
 export async function getStaticPaths() {
-  const data = await fetch('http://localhost:3000/api/products', {
-    method: 'GET',
-  });
-  const products = await data.json();
+  const { db } = await connectToDatabase();
+  const products = await db.collection('products').find().toArray();
 
-  const paths = products.data.map(p => ({
+  const paths = JSON.parse(JSON.stringify(products)).map(p => ({
     params: { slug: p.slug },
   }));
 

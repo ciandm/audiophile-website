@@ -4,6 +4,7 @@ import ProductDetail from '../../src/components/ProductDetail/ProductDetail';
 import CategoryProducts from '../../src/components/CategoryProducts/CategoryProducts';
 import ProductShopLinks from '../../src/components/ProductShopLinks/ProductShopCards';
 import BestAudioGear from '../../src/components/shared/BestAudioGear/BestAudioGear';
+import { connectToDatabase } from '../../util/mongodb';
 
 function SelectedCategoryPage({ category, products }) {
   return (
@@ -23,15 +24,15 @@ function SelectedCategoryPage({ category, products }) {
 export default SelectedCategoryPage;
 
 export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `http://localhost:3000/api/products/categories/${params.category}`,
-    {
-      method: 'GET',
-    }
+  const { db } = await connectToDatabase();
+  const result = await db
+    .collection('products')
+    .find({ category: params.category })
+    .toArray();
+
+  const products = JSON.parse(JSON.stringify(result)).sort(
+    (a, b) => b.new - a.new
   );
-  const results = await data.json();
-  // place items with a new flag towards the top
-  const products = results.data.sort((a, b) => b.new - a.new);
 
   return {
     props: {
@@ -42,17 +43,19 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const data = await fetch('http://localhost:3000/api/products', {
-    method: 'GET',
-  });
-  const products = await data.json();
+  const { db } = await connectToDatabase();
+  const result = await db.collection('products').find().toArray();
+  const products = JSON.parse(JSON.stringify(result));
 
   function removeDuplicateCategory(acc, current) {
+    // if the array includes the category already, return
     if (acc.includes(current.category)) return acc;
+    // add the category to the array
     return acc.concat(current.category);
   }
 
-  const paths = products.data.reduce(removeDuplicateCategory, []).map(p => ({
+  // put all products through a reducer to only keep 1 instance of each category
+  const paths = products.reduce(removeDuplicateCategory, []).map(p => ({
     params: { category: p },
   }));
 
