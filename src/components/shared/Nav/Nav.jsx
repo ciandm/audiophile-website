@@ -64,7 +64,7 @@ const NavMobile = ({
               className={`${styles.nav_button} ${styles.cart}`}
               type="button"
               onClick={() => handleShowCart('show')}
-              aria-label="Toggle menu"
+              aria-label="Toggle cart"
             >
               &nbsp;
             </button>
@@ -153,6 +153,7 @@ const NavDesktop = ({
           className={`${styles.nav_button} ${styles.cart}`}
           type="button"
           onClick={() => handleShowCart('show')}
+          aria-label="Toggle cart"
         >
           &nbsp;
         </button>
